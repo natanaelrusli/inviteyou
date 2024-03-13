@@ -7,7 +7,7 @@ const Section = styled.section`
 `;
 
 const SectionContainer = styled.div`
-  padding: 2em;
+  padding: 3em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,7 +40,7 @@ const Card = styled.div`
 
   div.bride-nickname {
     margin-top: 0.5em;
-    font-size: 4rem;
+    font-size: 5rem;
     font-family: "Alex Brush", cursive;
     font-weight: 400;
     font-style: normal;
@@ -49,7 +49,7 @@ const Card = styled.div`
 
   div.bride-name {
     color: #696361;
-    font-size: 1.3em;
+    font-size: 1.6em;
     font-weight: bold;
     margin-top: 0.3em;
     padding-bottom: 1em;
@@ -57,13 +57,32 @@ const Card = styled.div`
   }
 
   div.bride-description {
+    font-size: 1.3rem;
     color: #696361;
     margin: auto;
     margin-top: 1.5em;
     justify-content: center;
-    font-size: 1.1rem;
-    font-weight: 500;
-    width: 160px;
+    font-weight: 400;
+    width: 190px;
+  }
+
+  div.social-icon {
+    background-color: pink;
+    width: fit-content;
+    margin: auto;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    margin-top: 1em;
+    cursor: pointer;
+
+    i {
+      color: white;
+      font-size: 1.8em;
+    }
   }
 `;
 
@@ -78,6 +97,9 @@ const BrideCard = () => {
       <div className='bride-name'>Jonathan Wijaya</div>
       <div className='bride-description'>
         Putra kedua dari Andrian Wijaya & Susan Widjatmoko
+      </div>
+      <div className='social-icon'>
+        <i className='fa-brands fa-instagram'></i>
       </div>
     </Card>
   );

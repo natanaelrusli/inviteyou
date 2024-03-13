@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import heroImg from "../assets/hero-image.jpg";
 
 const fadeIn = keyframes`
   from {
@@ -12,7 +13,7 @@ const fadeIn = keyframes`
 `;
 
 const SectionContainer = styled.div`
-  background-image: url(https://unsplash.com/photos/IfjHaIoAoqE/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8M3x8d2VkZGluZ3xlbnwwfHx8fDE3MTAyNjgwNzd8MA&force=true&w=2400);
+  background-image: url(${heroImg});
   height: 100vh;
   background-size: cover;
   background-position: center;
