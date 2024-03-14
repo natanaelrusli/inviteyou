@@ -4,19 +4,22 @@
       "name": "John Doe",
       "age": 30,
       "email": "john.doe@example.com",
-      "RSVP": true
+      "RSVP": true,
+      "wishes": "the best!"
     },
     {
       "name": "Jane Smith",
       "age": 25,
       "email": "jane.smith@example.com",
-      "RSVP": false
+      "RSVP": false,
+      "wishes": "the best!"
     },
     {
       "name": "Alice Johnson",
       "age": 35,
       "email": "alice.johnson@example.com",
-      "RSVP": true
+      "RSVP": true,
+      "wishes": "the best!"
     }
   ]
 }

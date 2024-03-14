@@ -8,6 +8,8 @@ import InvitationPage from "./pages/InvitationPage";
 import ProtectedRoute from "./router/ProtectedRoute";
 
 import invitedGuests from "./guestList.json";
+import { GuestContext } from "./context/GuestNameContext";
+import { GuestDataItf } from "./types";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -57,10 +59,20 @@ function App() {
     },
   ]);
 
+  const [guest, setGuest] = useState<GuestDataItf>({
+    name: "",
+    age: 0,
+    phone: "",
+    RSVP: false,
+    wishes: "",
+  });
+
   return (
-    <ThemeProvider theme={theme}>
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <GuestContext.Provider value={{ guest, setGuest }}>
+      <ThemeProvider theme={theme}>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </GuestContext.Provider>
   );
 }
 
