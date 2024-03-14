@@ -2,13 +2,13 @@ import { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({
-  user,
+  isInvited,
   children,
 }: {
-  user: string;
+  isInvited: boolean;
   children: ReactNode;
 }) => {
-  if (!user) {
+  if (!isInvited) {
     return <Navigate to={"/"} replace />;
   }
 

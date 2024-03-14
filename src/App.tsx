@@ -7,6 +7,8 @@ import LandingPage from "./pages/LandingPage";
 import InvitationPage from "./pages/InvitationPage";
 import ProtectedRoute from "./router/ProtectedRoute";
 
+import invitedGuests from "./guestList.json";
+
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const theme = isDarkMode ? darkTheme : lightTheme;
@@ -28,6 +30,14 @@ function App() {
     };
   }, []);
 
+  const isUserInvited = (): boolean => {
+    const isInvited = invitedGuests.guests.findIndex(
+      (guest) => guest.name.toLowerCase() === "john doe"
+    );
+
+    return isInvited !== -1;
+  };
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -36,7 +46,7 @@ function App() {
     {
       path: "/invitation",
       element: (
-        <ProtectedRoute user=''>
+        <ProtectedRoute isInvited={isUserInvited()}>
           <InvitationPage />
         </ProtectedRoute>
       ),
