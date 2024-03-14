@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import InvitationPage from "./pages/InvitationPage";
+import ProtectedRoute from "./router/ProtectedRoute";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -34,7 +35,11 @@ function App() {
     },
     {
       path: "/invitation",
-      element: <InvitationPage />,
+      element: (
+        <ProtectedRoute user=''>
+          <InvitationPage />
+        </ProtectedRoute>
+      ),
     },
     {
       path: "*",

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import color from "../styles/color";
 import { useState } from "react";
 
-const fadeIn = keyframes`
+const fadeDown = keyframes`
   from {
     opacity: 0;
     transform: translateY(-20px);
@@ -12,6 +12,15 @@ const fadeIn = keyframes`
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+`;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 `;
 
@@ -30,7 +39,7 @@ const SubHeader = styled.p`
   font-size: 1.5rem;
   color: #8e8e8e;
   opacity: 0;
-  animation: ${fadeIn} 1s ease-in-out 0.5s forwards;
+  animation: ${fadeDown} 1s ease-in-out 0.5s forwards;
 `;
 
 const Header = styled.h1`
@@ -39,7 +48,7 @@ const Header = styled.h1`
   font-family: "Alex Brush", cursive;
   font-weight: 400;
   font-style: normal;
-  animation: ${fadeIn} 1s ease-in-out forwards;
+  animation: ${fadeDown} 1s ease-in-out forwards;
 `;
 
 const DateSubHeader = styled.p`
@@ -75,7 +84,8 @@ const LandingButton = styled(Link)`
   text-decoration: none;
 
   &:hover {
-    background-color: black;
+    background-color: ${color.primaryBrown};
+    border-color: ${color.primaryBrown};
     color: white;
   }
 `;
@@ -85,7 +95,7 @@ const InputContainer = styled.div`
 `;
 
 const Input = styled.input.attrs({ type: "text" })`
-  padding: 1em;
+  padding: 1.5em;
   border-radius: 13px;
   border: none;
   outline: none;
