@@ -1,12 +1,10 @@
 import { ThemeProvider } from "styled-components";
 import "./App.css";
-import BrideSummarySection from "./components/BrideSummarySection";
-import CountingDays from "./components/CountingDays";
-import HeroSection from "./components/HeroSection";
-import VerseSection from "./components/VerseSection";
 import { darkTheme, lightTheme } from "./styles/theme";
 import { useEffect, useState } from "react";
-import Wishes from "./components/Wishes";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import InvitationPage from "./pages/InvitationPage";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -29,13 +27,24 @@ function App() {
     };
   }, []);
 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <LandingPage />,
+    },
+    {
+      path: "/invitation",
+      element: <InvitationPage />,
+    },
+    {
+      path: "*",
+      element: <h1>404</h1>,
+    },
+  ]);
+
   return (
     <ThemeProvider theme={theme}>
-      <HeroSection />
-      <VerseSection />
-      <BrideSummarySection />
-      <CountingDays />
-      <Wishes />
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 }

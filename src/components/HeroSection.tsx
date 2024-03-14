@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import heroImg from "../assets/hero-image.jpg";
+import { useSearchParams } from "react-router-dom";
 
 const fadeIn = keyframes`
   from {
@@ -56,8 +57,18 @@ const HashtagText = styled.p`
 `;
 
 const HeroSection = () => {
+  const [searchParams] = useSearchParams();
+
+  const username = searchParams.get("name");
+
   return (
     <SectionContainer>
+      {
+        <p style={{ marginBottom: "8px" }}>
+          {"Dear Mr/Mrs. " + username?.toUpperCase()}
+        </p>
+      }
+      <p style={{ marginBottom: "8px" }}>We invite you to</p>
       <SubHeader>The marriage of</SubHeader>
       <Header>Joe & Christy</Header>
       <DateSubHeader>03.02.2024</DateSubHeader>

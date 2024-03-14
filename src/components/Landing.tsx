@@ -1,5 +1,8 @@
 import styled, { keyframes } from "styled-components";
 import heroImg from "../assets/hero-image.jpg";
+import { Link } from "react-router-dom";
+import color from "../styles/color";
+import { useState } from "react";
 
 const fadeIn = keyframes`
   from {
@@ -63,12 +66,13 @@ const TopSection = styled.div`
   align-items: center;
 `;
 
-const LandingButton = styled.button`
+const LandingButton = styled(Link)`
   padding: 1em 3em;
   background-color: transparent;
   border: 2px solid black;
   color: black;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     background-color: black;
@@ -76,7 +80,27 @@ const LandingButton = styled.button`
   }
 `;
 
+const InputContainer = styled.div`
+  margin-bottom: 2em;
+`;
+
+const Input = styled.input.attrs({ type: "text" })`
+  padding: 1em;
+  border-radius: 13px;
+  border: none;
+  outline: none;
+  background-color: ${color.primaryText};
+  color: ${color.softWhite};
+  width: 300px;
+
+  &::placeholder {
+    color: #b1b1b1;
+  }
+`;
+
 const Landing = () => {
+  const [name, setName] = useState<string>("");
+
   return (
     <SectionContainer>
       <TopSection>
@@ -85,7 +109,15 @@ const Landing = () => {
         <DateSubHeader>03.02.2024</DateSubHeader>
         <HashtagText>#JoefindChristy</HashtagText>
       </TopSection>
-      <LandingButton>Open Invitation</LandingButton>
+      <InputContainer>
+        <Input
+          onChange={(e) => setName(e.target.value)}
+          placeholder='Please input your name...'
+        />
+      </InputContainer>
+      <LandingButton to={`/invitation?name=${name}`}>
+        Open Invitation
+      </LandingButton>
     </SectionContainer>
   );
 };
