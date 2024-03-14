@@ -59,13 +59,13 @@ const HashtagText = styled.p`
 const HeroSection = () => {
   const [searchParams] = useSearchParams();
 
-  const username = searchParams.get("name");
+  const guest = searchParams.get("name");
 
   return (
     <SectionContainer>
       {
         <p style={{ marginBottom: "8px" }}>
-          {"Dear Mr/Mrs. " + username?.toUpperCase()}
+          {"Dear Mr/Mrs. " + guest?.toUpperCase()}
         </p>
       }
       <p style={{ marginBottom: "8px" }}>We invite you to</p>

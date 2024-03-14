@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { SectionHeader } from "../styles/styles";
 import color from "../styles/color";
+import { useSearchParams } from "react-router-dom";
 
 const BaseInput = styled.input`
   padding: 1em;
@@ -48,13 +49,17 @@ const Section = styled.section`
 `;
 
 const Wishes = () => {
+  const [searchParams] = useSearchParams();
+
+  const guest = searchParams.get("name");
+
   return (
     <Section>
       <SectionHeader
         style={{ marginBottom: "0.1em" }}
         $textColor={color.primaryText}
       >
-        Pray and Wishes
+        Pray and Wishes from {guest}
       </SectionHeader>
       <p style={{ marginBottom: "0.6em" }}>
         Please leave your sincere prayers and wishes to us and our family:
