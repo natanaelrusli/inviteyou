@@ -1,7 +1,8 @@
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 
 const Section = styled.section`
   background-color: #fefbf9;
+  background-color: ${(props) => props.theme.backgroundColor};
   padding: 5em 2em;
 `;
 
@@ -26,15 +27,17 @@ const VerseDiv = styled.div`
 
   div.verse {
     margin-top: 1em;
-    color: #525252;
     font-weight: bold;
     letter-spacing: 4px;
+    color: ${(props) => props.theme.textColor};
   }
   text-align: center;
-  color: #8e8e8e;
+  color: ${(props) => props.theme.textColorSecondary};
 `;
 
 const VerseSection = () => {
+  const theme = useTheme();
+
   return (
     <Section>
       <SectionContainer>
@@ -42,7 +45,7 @@ const VerseSection = () => {
           src='https://unsplash.com/photos/WJc87MVcDaA/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzEwMzQxODY4fA&force=true&w=2400'
           alt='bride image'
         />
-        <VerseDiv>
+        <VerseDiv theme={theme}>
           <img
             src='https://www.bridestory.com/_next/image?url=https%3A%2F%2Falexandra.bridestory.com%2Fimage%2Fupload%2Fdpr_1.0%2Cf_auto%2Cfl_progressive%2Cq_80%2Fv1%2Fassets%2Fbranches-GWZDtNSgR.png&w=96&q=75'
             alt='verse'
