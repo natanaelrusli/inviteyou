@@ -6,6 +6,7 @@ import HeroSection from "./components/HeroSection";
 import VerseSection from "./components/VerseSection";
 import { darkTheme, lightTheme } from "./styles/theme";
 import { useEffect, useState } from "react";
+import Wishes from "./components/Wishes";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -30,11 +31,11 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <Landing /> */}
       <HeroSection />
       <VerseSection />
       <BrideSummarySection />
       <CountingDays />
+      <Wishes />
     </ThemeProvider>
   );
 }
