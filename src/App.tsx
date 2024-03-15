@@ -47,6 +47,9 @@ function App() {
     },
     {
       path: "/invitation",
+      loader: async () => {
+        return fetch(`https://jsonplaceholder.typicode.com/users`);
+      },
       element: (
         <ProtectedRoute isInvited={isUserInvited()}>
           <InvitationPage />
