@@ -12,7 +12,15 @@ const BaseInput = styled.input`
   outline: none;
   background-color: ${color.primaryText};
   color: ${color.softWhite};
-  width: 100%; /* Changed width for mobile responsiveness */
+  width: 300px;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+
+  @media (max-width: 921px) {
+    width: 60%;
+  }
 
   &::placeholder {
     color: #b1b1b1;
@@ -34,7 +42,6 @@ const Button = styled.button<{ $active?: boolean }>`
   outline: none;
   border-radius: 8px;
   cursor: pointer;
-  width: 100%; /* Changed width for mobile responsiveness */
 `;
 
 const StyledLink = styled(Link)`
@@ -49,29 +56,12 @@ const Section = styled.section`
   align-items: center;
   gap: 1em;
   padding: 3em;
+
+  @media (max-width: 768px) {
+    padding: 3em;
+  }
+
   background-color: ${color.softWhite};
-`;
-
-const RSVPButtonDiv = styled.div`
-  display: flex;
-  width: 100%; /* Changed width for mobile responsiveness */
-  justify-content: space-between;
-  gap: 1em;
-
-  Button {
-    width: 48%; /* Adjusted width for mobile responsiveness */
-    padding: 0.5em;
-  }
-`;
-
-const RSVPSectionDiv = styled.div`
-  width: 100%; /* Changed width for mobile responsiveness */
-
-  p {
-    color: ${color.primaryBrown};
-    font-weight: 500;
-    margin-bottom: 1em;
-  }
 `;
 
 const Wishes = () => {
@@ -104,26 +94,6 @@ const Wishes = () => {
         onChange={(e) => setGuest({ ...guest, phone: e.target.value })}
       />
       <Input placeholder='The Relationship' />
-
-      <RSVPSectionDiv>
-        <p>
-          We'd love to hear from you! Please fill out the confirmation below:
-        </p>
-        <RSVPButtonDiv>
-          <Button
-            $active={!guest.RSVP}
-            onClick={() => setGuest({ ...guest, RSVP: false })}
-          >
-            Unable to Attend
-          </Button>
-          <Button
-            $active={guest.RSVP}
-            onClick={() => setGuest({ ...guest, RSVP: true })}
-          >
-            Gladly Attend
-          </Button>
-        </RSVPButtonDiv>
-      </RSVPSectionDiv>
       <TextArea
         placeholder='Your Pray and Wishes'
         style={{ marginBottom: "12px" }}

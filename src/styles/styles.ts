@@ -19,4 +19,8 @@ export const SectionHeader = styled.h1<{ $textColor?: string }>`
     flex-direction: column;
     text-align: center;
   }
+
+  @media (max-width: 921px) {
+    font-size: 4rem;
+  }
 `;
