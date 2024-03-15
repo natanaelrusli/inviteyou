@@ -1,18 +1,9 @@
-import { ReactNode } from "react";
-import { Navigate } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 
-const ProtectedRoute = ({
-  isInvited,
-  children,
-}: {
-  isInvited: boolean;
-  children: ReactNode;
-}) => {
-  if (!isInvited) {
-    return <Navigate to={"/"} replace />;
-  }
+const ProtectedRoute = () => {
+  const auth = { token: false };
 
-  return children;
+  return auth.token ? <Outlet /> : <Navigate to='/' />;
 };
 
 export default ProtectedRoute;

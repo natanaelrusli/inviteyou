@@ -7,9 +7,9 @@ import LandingPage from "./pages/LandingPage";
 import InvitationPage from "./pages/InvitationPage";
 import ProtectedRoute from "./router/ProtectedRoute";
 
-import invitedGuests from "./guestList.json";
 import { GuestContext } from "./context/GuestNameContext";
 import { GuestDataItf } from "./types";
+import ConfirmationPage from "./pages/ConfirmationPage";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -32,14 +32,6 @@ function App() {
     };
   }, []);
 
-  const isUserInvited = (): boolean => {
-    const isInvited = invitedGuests.guests.findIndex(
-      (guest) => guest.name.toLowerCase() === "john doe"
-    );
-
-    return isInvited !== -1;
-  };
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -47,14 +39,20 @@ function App() {
     },
     {
       path: "/invitation",
-      loader: async () => {
-        return fetch(`https://jsonplaceholder.typicode.com/users`);
-      },
-      element: (
-        <ProtectedRoute isInvited={isUserInvited()}>
-          <InvitationPage />
-        </ProtectedRoute>
-      ),
+      element: <ProtectedRoute />,
+      children: [
+        {
+          path: "/invitation",
+          // loader: async () => {
+          //   return fetch(`https://jsonplaceholder.typicode.com/users`);
+          // },
+          element: <InvitationPage />,
+        },
+      ],
+    },
+    {
+      path: "confirm",
+      element: <ConfirmationPage />,
     },
     {
       path: "*",

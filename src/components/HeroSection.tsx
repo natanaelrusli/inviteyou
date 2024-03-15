@@ -1,6 +1,8 @@
 import styled, { keyframes } from "styled-components";
 import heroImg from "../assets/hero-image.jpg";
 import { useSearchParams } from "react-router-dom";
+import { useContext } from "react";
+import { GuestContext } from "../context/GuestNameContext";
 
 const fadeIn = keyframes`
   from {
@@ -58,17 +60,24 @@ const HashtagText = styled.p`
 
 const HeroSection = () => {
   const [searchParams] = useSearchParams();
+  const { guest } = useContext(GuestContext);
 
-  const guest = searchParams.get("name");
+  const guestName = searchParams.get("name");
 
   return (
     <SectionContainer>
       {
         <p style={{ marginBottom: "8px" }}>
-          {"Dear Mr/Mrs. " + guest?.toUpperCase()}
+          {"Dear Mr/Mrs. " + guestName?.toUpperCase()}
         </p>
       }
-      <p style={{ marginBottom: "8px" }}>We invite you to</p>
+      {guest.RSVP ? (
+        <p style={{ marginBottom: "8px" }}>We invite you to</p>
+      ) : (
+        <p style={{ marginBottom: "8px", color: "red" }}>
+          We don't invite you to
+        </p>
+      )}
       <SubHeader>The marriage of</SubHeader>
       <Header>Joe & Christy</Header>
       <DateSubHeader>03.02.2024</DateSubHeader>
