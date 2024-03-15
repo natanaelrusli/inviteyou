@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import BrideSummarySection from "../components/BrideSummarySection";
 import CountingDays from "../components/CountingDays";
 import HeroSection from "../components/HeroSection";
@@ -14,9 +15,17 @@ const InvitationPage = () => {
   // const guests = useLoaderData() as Guest[];
 
   // const guestNames: string[] = guests.map((guest) => guest.name);
+  const brideName = ["Joe", "Christy"];
 
   return (
     <>
+      <Helmet>
+        <meta charSet='utf-8' />
+        <title>
+          Wedding Invitation of {brideName[0]} & {brideName[1]} - Inviteyou
+        </title>
+      </Helmet>
+
       <HeroSection />
       <VerseSection />
       <BrideSummarySection />
