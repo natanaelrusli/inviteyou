@@ -4,6 +4,10 @@ const Section = styled.section`
   background-color: #fefbf9;
   background-color: ${(props) => props.theme.backgroundColor};
   padding: 5em 2em;
+
+  @media (max-width: 768px) {
+    padding: 3em 1em;
+  }
 `;
 
 const SectionContainer = styled.div`
@@ -12,12 +16,24 @@ const SectionContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 2em;
+  min-width: 600px;
+
+  @media (max-width: 768px) {
+    min-width: 0px;
+    width: 80%;
+    flex-direction: column;
+  }
 `;
 
 const RoundedImage = styled.img`
   box-shadow: rgba(0, 0, 0, 0.17) 8px 16px 24px 0px;
   border-radius: 40px;
   width: 362px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 300px;
+  }
 `;
 
 const VerseDiv = styled.div`
@@ -33,6 +49,10 @@ const VerseDiv = styled.div`
   }
   text-align: center;
   color: ${(props) => props.theme.textColorSecondary};
+
+  @media (max-width: 768px) {
+    font-size: 1.1em;
+  }
 `;
 
 const VerseSection = () => {

@@ -1,5 +1,12 @@
 import { Dispatch, SetStateAction, createContext } from "react";
-import { GuestDataItf } from "../types";
+
+interface GuestDataItf {
+  name: string;
+  age: number;
+  phone: string;
+  RSVP: boolean;
+  wishes: string;
+}
 
 interface GuestContextItf {
   guest: GuestDataItf;

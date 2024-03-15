@@ -75,9 +75,10 @@ const RSVPSectionDiv = styled.div`
 
 const Wishes = () => {
   const [searchParams] = useSearchParams();
+  // destructuring object
   const { setGuest, guest } = useContext(GuestContext);
 
-  const guestName = searchParams.get("name");
+  const guestName = searchParams.get("name") || guest.name || "unknown";
 
   return (
     <Section>
@@ -95,6 +96,7 @@ const Wishes = () => {
       <Input
         placeholder='Your Name'
         value={guest.name}
+        // rest operator
         onChange={(e) => setGuest({ ...guest, name: e.target.value })}
       />
       <Input

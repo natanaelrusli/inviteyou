@@ -43,9 +43,6 @@ function App() {
       children: [
         {
           path: "/invitation",
-          // loader: async () => {
-          //   return fetch(`https://jsonplaceholder.typicode.com/users`);
-          // },
           element: <InvitationPage />,
         },
       ],

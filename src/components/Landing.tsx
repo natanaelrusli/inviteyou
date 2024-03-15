@@ -2,9 +2,6 @@ import styled, { keyframes } from "styled-components";
 import heroImg from "../assets/hero-image.jpg";
 import { Link } from "react-router-dom";
 import color from "../styles/color";
-import { useContext, useState } from "react";
-import { GuestContext } from "../context/GuestNameContext";
-import { GuestDataItf } from "../types";
 
 const fadeDown = keyframes`
   from {
@@ -92,38 +89,7 @@ const LandingButton = styled(Link)`
   }
 `;
 
-const InputContainer = styled.div`
-  margin-bottom: 2em;
-`;
-
-const Input = styled.input.attrs({ type: "text" })`
-  padding: 1.5em;
-  border-radius: 13px;
-  border: none;
-  outline: none;
-  background-color: ${color.primaryText};
-  color: ${color.softWhite};
-  width: 300px;
-
-  &::placeholder {
-    color: #b1b1b1;
-  }
-`;
-
 const Landing = () => {
-  const [guestData, setGuestData] = useState<GuestDataItf>({
-    name: "",
-    age: 0,
-    phone: "",
-    RSVP: false,
-    wishes: "",
-  });
-  const { setGuest } = useContext(GuestContext);
-
-  const handleInputChange = (name: string) => {
-    setGuestData({ ...guestData, name: name });
-  };
-
   return (
     <SectionContainer>
       <TopSection>
@@ -132,18 +98,7 @@ const Landing = () => {
         <DateSubHeader>03.02.2024</DateSubHeader>
         <HashtagText>#JoefindChristy</HashtagText>
       </TopSection>
-      <InputContainer>
-        <Input
-          onChange={(e) => handleInputChange(e.target.value)}
-          placeholder='Please input your name...'
-        />
-      </InputContainer>
-      <LandingButton
-        to={`/invitation?name=${guestData.name}`}
-        onClick={() => setGuest(guestData)}
-      >
-        Open Invitation
-      </LandingButton>
+      <LandingButton to={`/invitation?`}>Open Invitation</LandingButton>
     </SectionContainer>
   );
 };
