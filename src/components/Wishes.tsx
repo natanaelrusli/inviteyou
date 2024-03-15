@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { SectionHeader } from "../styles/styles";
 import color from "../styles/color";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useContext } from "react";
 import { GuestContext } from "../context/GuestNameContext";
 
@@ -34,6 +34,11 @@ const Button = styled.button<{ $active?: boolean }>`
   outline: none;
   border-radius: 8px;
   cursor: pointer;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${color.primaryBrown};
 `;
 
 const Section = styled.section`
@@ -85,6 +90,8 @@ const Wishes = () => {
       <p style={{ marginBottom: "0.6em" }}>
         Please leave your sincere prayers and wishes to us and our family:
       </p>
+
+      {/* form start */}
       <Input
         placeholder='Your Name'
         value={guest.name}
@@ -118,8 +125,19 @@ const Wishes = () => {
       <TextArea
         placeholder='Your Pray and Wishes'
         style={{ marginBottom: "12px" }}
+        onChange={(e) => setGuest({ ...guest, wishes: e.target.value })}
       />
-      <Button>Submit</Button>
+
+      <StyledLink
+        style={{
+          textDecoration: "none",
+          color: "black",
+        }}
+        to={`/confirm?name=${guest.name}&rsvp=${guest.RSVP}`}
+      >
+        <Button>SUBMIT</Button>
+      </StyledLink>
+      {/* form ends */}
     </Section>
   );
 };

@@ -51,7 +51,7 @@ function App() {
       ],
     },
     {
-      path: "confirm",
+      path: "/confirm",
       element: <ConfirmationPage />,
     },
     {
