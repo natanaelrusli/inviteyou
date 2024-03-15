@@ -1,28 +1,26 @@
 import { Helmet } from "react-helmet";
+
 import BrideSummarySection from "../components/BrideSummarySection";
 import CountingDays from "../components/CountingDays";
 import HeroSection from "../components/HeroSection";
 import VerseSection from "../components/VerseSection";
 import Wishes from "../components/Wishes";
-// import GuestsList from "../components/GuestsList";
-// import { useLoaderData } from "react-router-dom";
+import styled from "styled-components";
 
-// interface Guest {
-//   name: string;
-// }
+const PageWrapper = styled.div`
+  max-width: 100vw;
+  overflow-x: hidden;
+`;
 
 const InvitationPage = () => {
-  // const guests = useLoaderData() as Guest[];
-
-  // const guestNames: string[] = guests.map((guest) => guest.name);
   const brideName = ["Joe", "Christy"];
 
   return (
-    <>
+    <PageWrapper>
       <Helmet>
         <meta charSet='utf-8' />
         <title>
-          Wedding Invitation of {brideName[0]} & {brideName[1]} - Inviteyou
+          The wedding of {brideName[0]} & {brideName[1]} - Inviteyou
         </title>
       </Helmet>
 
@@ -32,7 +30,7 @@ const InvitationPage = () => {
       <CountingDays />
       <Wishes />
       {/* <GuestsList guestNames={guestNames} /> */}
-    </>
+    </PageWrapper>
   );
 };
 

@@ -12,7 +12,7 @@ const BaseInput = styled.input`
   outline: none;
   background-color: ${color.primaryText};
   color: ${color.softWhite};
-  width: 300px;
+  width: 100%; /* Changed width for mobile responsiveness */
 
   &::placeholder {
     color: #b1b1b1;
@@ -34,6 +34,7 @@ const Button = styled.button<{ $active?: boolean }>`
   outline: none;
   border-radius: 8px;
   cursor: pointer;
+  width: 100%; /* Changed width for mobile responsiveness */
 `;
 
 const StyledLink = styled(Link)`
@@ -53,18 +54,18 @@ const Section = styled.section`
 
 const RSVPButtonDiv = styled.div`
   display: flex;
-  width: 300px;
+  width: 100%; /* Changed width for mobile responsiveness */
   justify-content: space-between;
   gap: 1em;
 
   Button {
-    width: 50%;
+    width: 48%; /* Adjusted width for mobile responsiveness */
     padding: 0.5em;
   }
 `;
 
 const RSVPSectionDiv = styled.div`
-  width: 300px;
+  width: 100%; /* Changed width for mobile responsiveness */
 
   p {
     color: ${color.primaryBrown};
@@ -75,10 +76,9 @@ const RSVPSectionDiv = styled.div`
 
 const Wishes = () => {
   const [searchParams] = useSearchParams();
-  // destructuring object
   const { setGuest, guest } = useContext(GuestContext);
 
-  const guestName = searchParams.get("name") || guest.name || "unknown";
+  const guestName = searchParams.get("name") || guest.name || "you";
 
   return (
     <Section>

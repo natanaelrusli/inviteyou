@@ -48,6 +48,17 @@ const Header = styled.h1`
   font-weight: 400;
   font-style: normal;
   animation: ${fadeDown} 1s ease-in-out forwards;
+
+  @media (max-width: 768px) {
+    font-size: 4rem;
+    flex-direction: column;
+  }
+
+  @media (max-width: 468px) {
+    margin: 0.2em 0;
+    font-size: 3rem;
+    flex-direction: column;
+  }
 `;
 
 const DateSubHeader = styled.p`
@@ -56,6 +67,16 @@ const DateSubHeader = styled.p`
   font-weight: 400;
   opacity: 0;
   animation: ${fadeIn} 1s ease-in-out 2s forwards;
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+    flex-direction: column;
+  }
+
+  @media (max-width: 468px) {
+    font-size: 1.3rem;
+    flex-direction: column;
+  }
 `;
 
 const HashtagText = styled.p`
@@ -81,6 +102,14 @@ const LandingButton = styled(Link)`
   color: black;
   cursor: pointer;
   text-decoration: none;
+
+  @media (max-width: 768px) {
+    padding: 1em 2em;
+  }
+
+  @media (max-width: 468px) {
+    padding: 1em 2em;
+  }
 
   &:hover {
     background-color: ${color.primaryBrown};

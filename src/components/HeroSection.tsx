@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import heroImg from "../assets/hero-image.jpg";
 
-const fadeIn = keyframes`
+const fadeDown = keyframes`
   from {
     opacity: 0;
     transform: translateY(-20px);
@@ -9,6 +9,15 @@ const fadeIn = keyframes`
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+`;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 `;
 
@@ -27,7 +36,7 @@ const SubHeader = styled.p`
   font-size: 1.5rem;
   color: #8e8e8e;
   opacity: 0;
-  animation: ${fadeIn} 1s ease-in-out 0.5s forwards;
+  animation: ${fadeDown} 1s ease-in-out 0.5s forwards;
 `;
 
 const Header = styled.h1`
@@ -36,7 +45,18 @@ const Header = styled.h1`
   font-family: "Alex Brush", cursive;
   font-weight: 400;
   font-style: normal;
-  animation: ${fadeIn} 1s ease-in-out forwards;
+  animation: ${fadeDown} 1s ease-in-out forwards;
+
+  @media (max-width: 768px) {
+    font-size: 4rem;
+    flex-direction: column;
+  }
+
+  @media (max-width: 468px) {
+    margin: 0.2em 0;
+    font-size: 3rem;
+    flex-direction: column;
+  }
 `;
 
 const DateSubHeader = styled.p`
@@ -45,6 +65,16 @@ const DateSubHeader = styled.p`
   font-weight: 400;
   opacity: 0;
   animation: ${fadeIn} 1s ease-in-out 2s forwards;
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+    flex-direction: column;
+  }
+
+  @media (max-width: 468px) {
+    font-size: 1.3rem;
+    flex-direction: column;
+  }
 `;
 
 const HashtagText = styled.p`

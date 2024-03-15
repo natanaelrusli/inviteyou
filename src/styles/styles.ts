@@ -13,4 +13,10 @@ export const SectionHeader = styled.h1<{ $textColor?: string }>`
     font-weight: 400;
     font-style: normal;
   }
+
+  @media (max-width: 768px) {
+    font-size: 3rem;
+    flex-direction: column;
+    text-align: center;
+  }
 `;

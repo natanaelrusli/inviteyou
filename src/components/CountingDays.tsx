@@ -1,55 +1,60 @@
 import styled from "styled-components";
 
 const Section = styled.section`
-  background-image: url(https://alexandra.bridestory.com/image/upload/f_webp/v1/assets/maria-orlova-12yiylq49bi-unsplash2x-Hyj7ryFt6.webp);
-  height: 1000px;
+  background-image: url("https://alexandra.bridestory.com/image/upload/f_webp/v1/assets/maria-orlova-12yiylq49bi-unsplash2x-Hyj7ryFt6.webp");
+  height: fit-content;
   object-fit: cover;
   background-position: center;
 `;
 
 const SectionContainer = styled.div`
-  width: 50%;
+  width: 90%;
+  max-width: 900px;
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4em;
+  padding: 2em;
   flex-direction: column;
 `;
 
 const SectionHeader = styled.h1`
-  font-size: 5.5rem;
+  font-size: 3rem;
   font-family: "Alex Brush", cursive;
   font-weight: 400;
   font-style: normal;
   color: white;
 
   span {
-    font-size: 3rem;
-    font-family: "Alex Brush", cursive;
-    font-weight: 400;
-    font-style: normal;
+    font-size: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2.8rem;
+    text-align: center;
+
+    span {
+      font-size: 1.2rem;
+    }
   }
 `;
 
 const DateText = styled.div`
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: white;
   font-weight: 500;
   margin-top: 1em;
 `;
 
-const ScheduleDiv = styled.div<{ $reversed?: boolean }>`
+const ScheduleCard = styled.div<{ $reversed?: boolean }>`
   display: flex;
-  justify-content: space-between;
-  margin: 3em;
-  gap: 5em;
-  flex-direction: ${(props) =>
-    props.$reversed === true ? "row-reverse" : "row"};
+  flex-direction: column;
+  gap: 2em;
 
   img {
-    width: 270px;
-    height: 270px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
     object-fit: cover;
     border-radius: 1em;
   }
@@ -58,14 +63,12 @@ const ScheduleDiv = styled.div<{ $reversed?: boolean }>`
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 1em;
-    font-size: 0.8;
-    width: 45%;
 
     h1 {
       color: white;
-      letter-spacing: 6px;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
     }
 
     .date,
@@ -73,6 +76,7 @@ const ScheduleDiv = styled.div<{ $reversed?: boolean }>`
     .address {
       color: white;
       font-weight: 400;
+      font-size: 0.8rem;
     }
 
     button {
@@ -80,11 +84,46 @@ const ScheduleDiv = styled.div<{ $reversed?: boolean }>`
       border: 1px solid white;
       color: white;
       width: fit-content;
-      margin: 0 auto;
-      padding: 1em 3em;
+      padding: 0.5em 1em;
       border-radius: 1em;
       cursor: pointer;
       font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2em;
+
+      .schedule-description {
+      }
+    }
+  }
+
+  /* Media query for mobile responsiveness */
+  @media (max-width: 768px) {
+    padding: 1em;
+
+    img {
+      max-width: 250px;
+    }
+
+    .schedule-description {
+      h1 {
+        font-size: 1.2rem;
+      }
+
+      .date,
+      .time,
+      .address {
+        font-size: 0.7rem;
+      }
+
+      button {
+        padding: 0.3em 0.8em;
+        font-size: 0.8rem;
+      }
     }
   }
 `;
@@ -98,7 +137,7 @@ const CountingDays = () => {
         </SectionHeader>
         <DateText>Saturday, 03 February 2024</DateText>
 
-        <ScheduleDiv>
+        <ScheduleCard>
           <img
             src='https://unsplash.com/photos/w5_xJ13Ryf0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzB8fGJyaWRlJTIwYW5kJTIwZ3Jvb218ZW58MHx8fHwxNzEwMjkxMDQ4fDA&force=true&w=640'
             alt='bride and groom image'
@@ -113,8 +152,8 @@ const CountingDays = () => {
             </div>
             <button>Open in Maps</button>
           </div>
-        </ScheduleDiv>
-        <ScheduleDiv $reversed={true}>
+        </ScheduleCard>
+        <ScheduleCard $reversed={true}>
           <img
             src='https://unsplash.com/photos/w5_xJ13Ryf0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzB8fGJyaWRlJTIwYW5kJTIwZ3Jvb218ZW58MHx8fHwxNzEwMjkxMDQ4fDA&force=true&w=640'
             alt='bride and groom image'
@@ -129,7 +168,7 @@ const CountingDays = () => {
             </div>
             <button>Open in Maps</button>
           </div>
-        </ScheduleDiv>
+        </ScheduleCard>
       </SectionContainer>
     </Section>
   );

@@ -22,6 +22,10 @@ const SectionContainer = styled.div`
 const BrideSummary = styled.div`
   display: flex;
   gap: 7em;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Card = styled.div`
@@ -82,6 +86,35 @@ const Card = styled.div`
     i {
       color: white;
       font-size: 1.8em;
+    }
+  }
+
+  /* Media query for mobile responsiveness */
+  @media (max-width: 768px) {
+    img {
+      width: 200px;
+      height: 200px;
+    }
+
+    div.bride-nickname {
+      font-size: 3rem;
+    }
+
+    div.bride-name {
+      font-size: 1.2em;
+    }
+
+    div.bride-description {
+      font-size: 1rem;
+    }
+
+    div.social-icon {
+      width: 40px;
+      height: 40px;
+
+      i {
+        font-size: 1.2em;
+      }
     }
   }
 `;
