@@ -19,7 +19,7 @@ const BaseInput = styled.input`
   }
 
   @media (max-width: 921px) {
-    width: 60%;
+    width: 80%;
   }
 
   &::placeholder {
@@ -37,16 +37,15 @@ const Button = styled.button<{ $active?: boolean }>`
   background-color: ${(props) =>
     props.$active ? color.primaryBrown : color.softWhite};
   color: ${(props) => (props.$active ? color.softWhite : color.primaryBrown)};
-  padding: 0.5em 3em;
+  padding: 1em 3em;
   border: 1px solid ${color.primaryText};
   outline: none;
   border-radius: 8px;
   cursor: pointer;
-`;
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: ${color.primaryBrown};
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Section = styled.section`
@@ -64,6 +63,11 @@ const Section = styled.section`
   background-color: ${color.softWhite};
 `;
 
+const FormCaption = styled.p`
+  color: ${color.primaryBrown};
+  font-weight: 500;
+`;
+
 const Wishes = () => {
   const [searchParams] = useSearchParams();
   const { setGuest, guest } = useContext(GuestContext);
@@ -78,9 +82,9 @@ const Wishes = () => {
       >
         Pray and Wishes from {guestName}
       </SectionHeader>
-      <p style={{ marginBottom: "0.6em" }}>
-        Please leave your sincere prayers and wishes to us and our family:
-      </p>
+      <FormCaption style={{ marginBottom: "0.6em" }}>
+        Please leave your sincere prayers and wishes to us and our family
+      </FormCaption>
 
       {/* form start */}
       <Input
@@ -100,15 +104,18 @@ const Wishes = () => {
         onChange={(e) => setGuest({ ...guest, wishes: e.target.value })}
       />
 
-      <StyledLink
+      <Link
         style={{
           textDecoration: "none",
           color: "black",
+          width: "80%",
+          display: "flex",
+          justifyContent: "center",
         }}
         to={`/confirm?name=${guest.name}&rsvp=${guest.RSVP}`}
       >
         <Button>SUBMIT</Button>
-      </StyledLink>
+      </Link>
       {/* form ends */}
     </Section>
   );

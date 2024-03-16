@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { data, images } from "../constants/data";
 
 const bgColor = "#E2EAF4";
 
@@ -119,21 +120,27 @@ const Card = styled.div`
   }
 `;
 
-const BrideCard = () => {
+interface BridesCardProps {
+  image: string;
+  nickname: string;
+  name: string;
+  biodata: string;
+}
+
+const BrideCard = ({ image, nickname, name, biodata }: BridesCardProps) => {
   return (
     <Card>
       <img
-        src='https://unsplash.com/photos/MMNgGsFEbuI/download?force=true&w=2400'
+        // https://unsplash.com/photos/MMNgGsFEbuI/download?force=true&w=2400
+        src={image}
         alt='bride photo'
       />
-      <div className='bride-nickname'>Joe</div>
-      <div className='bride-name'>Jonathan Wijaya</div>
-      <div className='bride-description'>
-        Putra kedua dari Andrian Wijaya & Susan Widjatmoko
-      </div>
-      <div className='social-icon'>
+      <div className='bride-nickname'>{nickname}</div>
+      <div className='bride-name'>{name}</div>
+      <div className='bride-description'>{biodata}</div>
+      {/* <div className='social-icon'>
         <i className='fa-brands fa-instagram'></i>
-      </div>
+      </div> */}
     </Card>
   );
 };
@@ -147,8 +154,18 @@ const BrideSummarySection = () => {
           alt='bride summary leafs'
         />
         <BrideSummary>
-          <BrideCard />
-          <BrideCard />
+          <BrideCard
+            image={images.groomsBiodataPhoto}
+            nickname={data.groomsNickname}
+            name={data.groomsName}
+            biodata={data.groomsBiodata}
+          />
+          <BrideCard
+            image={images.bridesBiodataPhoto}
+            nickname={data.bridesNickname}
+            name={data.bridesName}
+            biodata={data.bridesBiodata}
+          />
         </BrideSummary>
       </SectionContainer>
     </Section>

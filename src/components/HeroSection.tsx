@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import heroImg from "../assets/hero-image.jpg";
+import { data } from "../constants/data";
 
 const fadeDown = keyframes`
   from {
@@ -89,9 +90,11 @@ const HeroSection = () => {
   return (
     <SectionContainer>
       <SubHeader>The marriage of</SubHeader>
-      <Header>Joe & Christy</Header>
-      <DateSubHeader>03.02.2024</DateSubHeader>
-      <HashtagText>#JoefindChristy</HashtagText>
+      <Header>
+        {data.groomsNickname} & {data.bridesNickname}
+      </Header>
+      <DateSubHeader>{data.weddingDate}</DateSubHeader>
+      <HashtagText>#{data.hashtag}</HashtagText>
     </SectionContainer>
   );
 };

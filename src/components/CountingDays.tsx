@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { data } from "../constants/data";
 
 const Section = styled.section`
   background-image: url(https://alexandra.bridestory.com/image/upload/f_webp/v1/assets/maria-orlova-12yiylq49bi-unsplash2x-Hyj7ryFt6.webp);
@@ -8,7 +9,7 @@ const Section = styled.section`
 `;
 
 const SectionContainer = styled.div`
-  width: 50%;
+  width: 60%;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -87,7 +88,7 @@ const ScheduleDiv = styled.div<{ $reversed?: boolean }>`
 
     h1 {
       color: white;
-      letter-spacing: 6px;
+      letter-spacing: 3px;
     }
 
     .date,
@@ -112,6 +113,10 @@ const ScheduleDiv = styled.div<{ $reversed?: boolean }>`
 `;
 
 const CountingDays = () => {
+  const openMaps = (url: string) => {
+    window.open(url);
+  };
+
   return (
     <Section>
       <SectionContainer>
@@ -126,14 +131,17 @@ const CountingDays = () => {
             alt='bride and groom image'
           />
           <div className='schedule-description'>
-            <h1>AKAD NIKAH</h1>
-            <div className='date'>20 February 2023</div>
-            <div className='time'>01:00 - 02:00 WIB</div>
-            <div className='address'>
-              Assembly Hall Menara Mandiri Lt.10 Jl. Jenderal Sudirman No.Kav
-              54-55, Senayan - Jakarta Selatan
-            </div>
-            <button>Open in Maps</button>
+            <h1>Pemberkatan Pernikahan</h1>
+            <div className='date'>{data.weddingDate}</div>
+            <div className='time'>{data.blessingTime}</div>
+            <div className='address'>{data.blessingLocation}</div>
+            <button
+              onClick={() =>
+                openMaps("https://maps.app.goo.gl/C3HWf7TsJvMzwLb27")
+              }
+            >
+              Open in Maps
+            </button>
           </div>
         </ScheduleDiv>
         <ScheduleDiv $reversed={true}>
@@ -142,14 +150,17 @@ const CountingDays = () => {
             alt='bride and groom image'
           />
           <div className='schedule-description'>
-            <h1>RESEPSI</h1>
-            <div className='date'>20 February 2023</div>
-            <div className='time'>19:00 - 21:00 WIB</div>
-            <div className='address'>
-              Assembly Hall Menara Mandiri Lt.10 Jl. Jenderal Sudirman No.Kav
-              54-55, Senayan - Jakarta Selatan
-            </div>
-            <button>Open in Maps</button>
+            <h1>Resepsi</h1>
+            <div className='date'>{data.weddingDate}</div>
+            <div className='time'>{data.receptionTime}</div>
+            <div className='address'>{data.receptionLocation}</div>
+            <button
+              onClick={() =>
+                openMaps("https://maps.app.goo.gl/NoUdZD1XFS2q7Hdz6")
+              }
+            >
+              Open in Maps
+            </button>
           </div>
         </ScheduleDiv>
       </SectionContainer>

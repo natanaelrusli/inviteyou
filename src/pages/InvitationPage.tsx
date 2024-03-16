@@ -6,6 +6,7 @@ import HeroSection from "../components/HeroSection";
 import VerseSection from "../components/VerseSection";
 import Wishes from "../components/Wishes";
 import styled from "styled-components";
+import AngpaoSection from "../components/AngpaoSection";
 
 const PageWrapper = styled.div`
   max-width: 100vw;
@@ -28,6 +29,7 @@ const InvitationPage = () => {
       <VerseSection />
       <BrideSummarySection />
       <CountingDays />
+      <AngpaoSection />
       <Wishes />
       {/* <GuestsList guestNames={guestNames} /> */}
     </PageWrapper>

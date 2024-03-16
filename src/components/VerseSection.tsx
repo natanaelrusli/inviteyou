@@ -1,4 +1,5 @@
 import styled, { useTheme } from "styled-components";
+import { data } from "../constants/data";
 
 const Section = styled.section`
   background-color: #fefbf9;
@@ -70,12 +71,8 @@ const VerseSection = () => {
             src='https://www.bridestory.com/_next/image?url=https%3A%2F%2Falexandra.bridestory.com%2Fimage%2Fupload%2Fdpr_1.0%2Cf_auto%2Cfl_progressive%2Cq_80%2Fv1%2Fassets%2Fbranches-GWZDtNSgR.png&w=96&q=75'
             alt='verse'
           />
-          <p>
-            “At vero eos et accusamus et iusto odio dignissimos ducimus qui
-            blanditiis praesentium voluptatum deleniti atque corrupti quos
-            dolores et quas to odio dignissimos ducimus”
-          </p>
-          <div className='verse'>PASAL 1:1</div>
+          <p>“{data.verseContents}”</p>
+          <div className='verse'>{data.verse}</div>
         </VerseDiv>
       </SectionContainer>
     </Section>
