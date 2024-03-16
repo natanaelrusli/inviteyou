@@ -7,6 +7,7 @@ import VerseSection from "../components/VerseSection";
 import Wishes from "../components/Wishes";
 import styled from "styled-components";
 import AngpaoSection from "../components/AngpaoSection";
+import { data } from "../constants/data";
 
 const PageWrapper = styled.div`
   max-width: 100vw;
@@ -14,14 +15,13 @@ const PageWrapper = styled.div`
 `;
 
 const InvitationPage = () => {
-  const brideName = ["Joe", "Christy"];
-
   return (
     <PageWrapper>
       <Helmet>
         <meta charSet='utf-8' />
         <title>
-          The wedding of {brideName[0]} & {brideName[1]} - Inviteyou
+          The wedding of {data.groomsNickname} & {data.bridesNickname} -
+          Inviteyou
         </title>
       </Helmet>
 
