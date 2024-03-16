@@ -2,6 +2,7 @@ import styled, { keyframes } from "styled-components";
 import heroImg from "../assets/hero-image.jpg";
 import { Link } from "react-router-dom";
 import color from "../styles/color";
+import { data } from "../constants/data";
 
 const fadeDown = keyframes`
   from {
@@ -123,9 +124,11 @@ const Landing = () => {
     <SectionContainer>
       <TopSection>
         <SubHeader>The marriage of</SubHeader>
-        <Header>Joe & Christy</Header>
-        <DateSubHeader>03.02.2024</DateSubHeader>
-        <HashtagText>#JoefindChristy</HashtagText>
+        <Header>
+          {data.groomsNickname} & {data.bridesNickname}
+        </Header>
+        <DateSubHeader>{data.weddingDate}</DateSubHeader>
+        <HashtagText>#{data.hashtag}</HashtagText>
       </TopSection>
       <LandingButton to={`/invitation?`}>Open Invitation</LandingButton>
     </SectionContainer>
