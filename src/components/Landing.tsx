@@ -1,39 +1,10 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import heroImg from "../assets/hero-image.jpg";
 import { Link } from "react-router-dom";
 import color from "../styles/color";
 import { data } from "../constants/data";
-
-const fadeDown = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
-
-const SectionContainer = styled.div`
-  background-image: url(${heroImg});
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
+import { fadeDown, fadeIn } from "../styles/animations";
+import { SectionContainer } from "../styles/styles";
 
 const SubHeader = styled.p`
   font-size: 1.5rem;
@@ -103,6 +74,9 @@ const LandingButton = styled(Link)`
   color: black;
   cursor: pointer;
   text-decoration: none;
+  border-radius: 16px;
+  animation: ${fadeIn} 1s ease-in-out 2.4s forwards;
+  opacity: 0;
 
   @media (max-width: 768px) {
     padding: 1em 2em;
@@ -121,7 +95,7 @@ const LandingButton = styled(Link)`
 
 const Landing = () => {
   return (
-    <SectionContainer>
+    <SectionContainer $bgImg={heroImg}>
       <TopSection>
         <SubHeader>The marriage of</SubHeader>
         <Header>

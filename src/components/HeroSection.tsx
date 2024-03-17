@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components";
-import heroImg from "../assets/hero-image.jpg";
 import { data } from "../constants/data";
+import { SectionContainer } from "../styles/styles";
+import color from "../styles/color";
 
 const fadeDown = keyframes`
   from {
@@ -22,20 +23,9 @@ const fadeIn = keyframes`
   }
 `;
 
-const SectionContainer = styled.div`
-  background-image: url(${heroImg});
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
 const SubHeader = styled.p`
   font-size: 1.5rem;
-  color: #8e8e8e;
+  color: ${color.primaryBrown};
   opacity: 0;
   animation: ${fadeDown} 1s ease-in-out 0.5s forwards;
 `;
@@ -80,7 +70,10 @@ const DateSubHeader = styled.p`
 
 const HashtagText = styled.p`
   font-size: 1.4rem;
-  color: #8e8e8e;
+  color: ${color.softWhite};
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1em;
+  border-radius: 16px;
   margin-top: 0.7em;
   opacity: 0;
   animation: ${fadeIn} 1s ease-in-out 2s forwards;
@@ -88,7 +81,7 @@ const HashtagText = styled.p`
 
 const HeroSection = () => {
   return (
-    <SectionContainer>
+    <SectionContainer $bgImg='https://images.unsplash.com/photo-1605985687770-2e2e82c9b5f1?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'>
       <SubHeader>The marriage of</SubHeader>
       <Header>
         {data.groomsNickname} & {data.bridesNickname}
