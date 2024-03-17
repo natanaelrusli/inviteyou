@@ -2,6 +2,7 @@ import styled, { keyframes } from "styled-components";
 import { data } from "../constants/data";
 import { SectionContainer } from "../styles/styles";
 import color from "../styles/color";
+import { useRef } from "react";
 
 const fadeDown = keyframes`
   from {
@@ -20,6 +21,42 @@ const fadeIn = keyframes`
   }
   to {
     opacity: 1;
+  }
+`;
+
+const bounceDown = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+`;
+
+const ScrollButton = styled.button`
+  position: absolute;
+  bottom: 60px;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #333333;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  opacity: 0;
+  animation: ${fadeDown} 1s ease-in-out 2s forwards, ${bounceDown} 2s infinite;
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #333333;
+    color: #ffffff;
   }
 `;
 
@@ -80,6 +117,16 @@ const HashtagText = styled.p`
 `;
 
 const HeroSection = () => {
+  const nextSectionRef = useRef(null);
+
+  const handleScrollClick = () => {
+    if (nextSectionRef.current) {
+      document
+        .getElementById("verse-section")
+        ?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <SectionContainer $bgImg='https://images.unsplash.com/photo-1605985687770-2e2e82c9b5f1?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'>
       <SubHeader>The marriage of</SubHeader>
@@ -88,6 +135,10 @@ const HeroSection = () => {
       </Header>
       <DateSubHeader>{data.weddingDate}</DateSubHeader>
       <HashtagText>#{data.hashtag}</HashtagText>
+      <ScrollButton onClick={handleScrollClick}>
+        Click to see more details <i className='fa-solid fa-chevron-down'></i>
+      </ScrollButton>
+      <div ref={nextSectionRef} />
     </SectionContainer>
   );
 };

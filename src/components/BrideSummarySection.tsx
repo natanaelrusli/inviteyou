@@ -26,6 +26,7 @@ const BrideSummary = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
+    gap: 4em;
   }
 `;
 
