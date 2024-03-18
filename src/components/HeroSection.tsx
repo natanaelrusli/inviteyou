@@ -24,42 +24,6 @@ const fadeIn = keyframes`
   }
 `;
 
-const bounceDown = keyframes`
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-`;
-
-const ScrollButton = styled.button`
-  position: absolute;
-  bottom: 60px;
-  transform: translateX(-50%);
-  padding: 10px 20px;
-  background-color: #ffffff;
-  color: #333333;
-  border: 1px solid #333333;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  opacity: 0;
-  animation: ${fadeDown} 1s ease-in-out 2s forwards, ${bounceDown} 2s infinite;
-  background-color: transparent;
-  border: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-
-  &:hover {
-    background-color: #333333;
-    color: #ffffff;
-  }
-`;
-
 const SubHeader = styled.p`
   font-size: 1.5rem;
   color: ${color.primaryBrown};
@@ -108,7 +72,7 @@ const DateSubHeader = styled.p`
 const HashtagText = styled.p`
   font-size: 1.4rem;
   color: ${color.softWhite};
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
   padding: 1em;
   border-radius: 16px;
   margin-top: 0.7em;
@@ -122,7 +86,7 @@ const HeroSection = () => {
   const handleScrollClick = () => {
     if (nextSectionRef.current) {
       document
-        .getElementById("verse-section")
+        .getElementById("bride-summary-section")
         ?.scrollIntoView({ behavior: "smooth" });
     }
   };
@@ -135,9 +99,14 @@ const HeroSection = () => {
       </Header>
       <DateSubHeader>{data.weddingDate}</DateSubHeader>
       <HashtagText>#{data.hashtag}</HashtagText>
-      <ScrollButton onClick={handleScrollClick}>
-        Click to see more details <i className='fa-solid fa-chevron-down'></i>
-      </ScrollButton>
+      <div
+        onClick={handleScrollClick}
+        className='absolute bottom-12 font-semibold cursor-pointer animate-fadeDownDelay opacity-0'
+      >
+        <p className='animate-bounce hover:bg-[#FDFBF9] p-3 rounded-xl transition-all text-gray-700 text-2xl '>
+          Click to see more details <i className='fa-solid fa-chevron-down'></i>
+        </p>
+      </div>
       <div ref={nextSectionRef} />
     </SectionContainer>
   );

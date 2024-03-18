@@ -2,7 +2,7 @@ import styled, { useTheme } from "styled-components";
 import { data } from "../constants/data";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { useInView } from "react-intersection-observer"; // Import useInView
+import { useInView } from "react-intersection-observer";
 
 const SkeletonLoader = styled.div`
   min-width: 360px;
@@ -58,6 +58,7 @@ const RoundedImage = styled(motion.img)`
   box-shadow: rgba(0, 0, 0, 0.17) 8px 16px 24px 0px;
   border-radius: 40px;
   width: 362px;
+  height: 362px;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -87,7 +88,7 @@ const VerseDiv = styled.div`
 const VerseSection = () => {
   const theme = useTheme();
   const [isLoading, setIsLoading] = useState(true);
-  const { ref, inView } = useInView(); // Initialize useInView
+  const { ref, inView } = useInView();
 
   const handleImageLoad = () => {
     setIsLoading(false);
@@ -112,10 +113,6 @@ const VerseSection = () => {
         />
 
         <VerseDiv theme={theme}>
-          <img
-            src='https://www.bridestory.com/_next/image?url=https%3A%2F%2Falexandra.bridestory.com%2Fimage%2Fupload%2Fdpr_1.0%2Cf_auto%2Cfl_progressive%2Cq_80%2Fv1%2Fassets%2Fbranches-GWZDtNSgR.png&w=96&q=75'
-            alt='verse'
-          />
           <p>“{data.verseContents}”</p>
           <div className='verse'>{data.verse}</div>
         </VerseDiv>

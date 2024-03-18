@@ -1,5 +1,6 @@
-import { ThemeProvider } from "styled-components";
 import "./App.css";
+import "./style.css";
+import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./styles/theme";
 import { useEffect, useState } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";

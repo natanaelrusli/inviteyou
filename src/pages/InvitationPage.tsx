@@ -26,8 +26,8 @@ const InvitationPage = () => {
       </Helmet>
 
       <HeroSection />
-      <VerseSection />
       <BrideSummarySection />
+      <VerseSection />
       <CountingDays />
       <AngpaoSection />
       <Wishes />
