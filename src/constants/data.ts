@@ -4,6 +4,7 @@ export const data = {
   groomsNickname: "Anthony",
   bridesNickname: "Leonie",
   weddingDate: "2024.11.25",
+  weddingDateUTC: "November 25, 2024",
   hashtag: "AnthonyLeonieComesOne",
   verse: "Yohanes 1 : 46",
   verseContents:

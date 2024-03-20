@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { data } from "../constants/data";
+import CountdownTimer from "./CountdownTimer";
 
 const Section = styled.section`
   background-image: url(https://alexandra.bridestory.com/image/upload/f_webp/v1/assets/maria-orlova-12yiylq49bi-unsplash2x-Hyj7ryFt6.webp);
@@ -123,8 +124,13 @@ const CountingDays = () => {
         <SectionHeader>
           Counting <span>the</span> Days
         </SectionHeader>
-        <DateText>Saturday, 03 February 2024</DateText>
-
+        <DateText>Saturday, {data.weddingDateUTC}</DateText>
+        <div className='mt-6 flex flex-col justify-center items-center gap-5'>
+          <CountdownTimer date={data.weddingDate} />
+          <p className='text-2xl font-semibold text-white'>
+            Left until the wedding
+          </p>
+        </div>
         <ScheduleDiv>
           <img
             src='https://unsplash.com/photos/w5_xJ13Ryf0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzB8fGJyaWRlJTIwYW5kJTIwZ3Jvb218ZW58MHx8fHwxNzEwMjkxMDQ4fDA&force=true&w=640'

@@ -572,6 +572,14 @@ video {
   margin-top: 1rem;
 }
 
+.mb-2{
+  margin-bottom: 0.5rem;
+}
+
+.mt-6{
+  margin-top: 1.5rem;
+}
+
 .block{
   display: block;
 }
@@ -610,6 +618,38 @@ video {
 
 .w-full{
   width: 100%;
+}
+
+.w-12{
+  width: 3rem;
+}
+
+.w-\[50px\]{
+  width: 50px;
+}
+
+.w-\[150px\]{
+  width: 150px;
+}
+
+.w-\[120px\]{
+  width: 120px;
+}
+
+.w-\[400px\]{
+  width: 400px;
+}
+
+.w-\[300px\]{
+  width: 300px;
+}
+
+.w-\[290px\]{
+  width: 290px;
+}
+
+.flex-1{
+  flex: 1 1 0%;
 }
 
 .transform{
@@ -656,6 +696,10 @@ video {
   flex-direction: column;
 }
 
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
 .items-center{
   align-items: center;
 }
@@ -668,12 +712,46 @@ video {
   gap: 0.5rem;
 }
 
+.gap-4{
+  gap: 1rem;
+}
+
+.gap-3{
+  gap: 0.75rem;
+}
+
+.gap-5{
+  gap: 1.25rem;
+}
+
+.overflow-hidden{
+  overflow: hidden;
+}
+
+.overflow-clip{
+  overflow: clip;
+}
+
+.truncate{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-ellipsis{
+  text-overflow: ellipsis;
+}
+
 .rounded-full{
   border-radius: 9999px;
 }
 
 .rounded-xl{
   border-radius: 0.75rem;
+}
+
+.rounded-lg{
+  border-radius: 0.5rem;
 }
 
 .border{
@@ -692,6 +770,11 @@ video {
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-soft-brown{
+  --tw-bg-opacity: 1;
+  background-color: rgb(105 99 94 / var(--tw-bg-opacity));
 }
 
 .object-cover{
@@ -735,6 +818,16 @@ video {
   line-height: 1.75rem;
 }
 
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-4xl{
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .font-bold{
   font-weight: 700;
 }
@@ -755,6 +848,11 @@ video {
 .text-soft-brown{
   --tw-text-opacity: 1;
   color: rgb(105 99 94 / var(--tw-text-opacity));
+}
+
+.text-white{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .opacity-0{
@@ -821,5 +919,13 @@ video {
 @media not all and (min-width: 1024px){
   .max-lg\:hidden{
     display: none;
+  }
+
+  .max-lg\:w-\[250px\]{
+    width: 250px;
+  }
+
+  .max-lg\:flex-1{
+    flex: 1 1 0%;
   }
 }
