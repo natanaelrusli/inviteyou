@@ -5,7 +5,8 @@ const CountdownText = styled.div`
   font-size: 1.5rem;
   color: white;
   font-weight: bold;
-  margin-top: 1em;
+  margin: 0.6em 0;
+  text-align: center;
 `;
 
 const TimeCard = ({ time, text }: { time: number; text: string }) => {
@@ -22,7 +23,7 @@ const TimeCard = ({ time, text }: { time: number; text: string }) => {
 };
 
 const CountdownTimer = ({
-  card = true,
+  card = false,
   date,
 }: {
   card?: boolean;
@@ -71,7 +72,7 @@ const CountdownTimer = ({
       {!card ? (
         <CountdownText>{remainingTime} left until the wedding</CountdownText>
       ) : (
-        <div className='flex flex-wrap justify-center gap-4'>
+        <div className='flex flex-wrap justify-center gap-4 text-center'>
           <div className='flex gap-3 max-lg:w-[250px]'>
             <TimeCard time={years} text='Years' />
             <TimeCard time={months} text='Months' />
@@ -80,6 +81,9 @@ const CountdownTimer = ({
             <TimeCard time={weeks} text='Weeks' />
             <TimeCard time={days} text='Days' />
           </div>
+          <p className='text-2xl font-semibold text-white'>
+            Left until the wedding
+          </p>
         </div>
       )}
     </>

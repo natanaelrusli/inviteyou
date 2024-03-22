@@ -127,9 +127,6 @@ const CountingDays = () => {
         <DateText>Saturday, {data.weddingDateUTC}</DateText>
         <div className='mt-6 flex flex-col justify-center items-center gap-5'>
           <CountdownTimer date={data.weddingDate} />
-          <p className='text-2xl font-semibold text-white'>
-            Left until the wedding
-          </p>
         </div>
         <ScheduleDiv>
           <img
