@@ -20,6 +20,7 @@ export default {
         tahiti: "#3ab7bf",
         silver: "#ecebff",
         "bubble-gum": "#ff77e9",
+        "soft-white": "#FDFBF9",
         bermuda: "#78dcca",
         "soft-brown": "#69635E",
       },

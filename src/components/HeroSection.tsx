@@ -103,7 +103,7 @@ const HeroSection = () => {
         onClick={handleScrollClick}
         className='absolute bottom-12 font-semibold cursor-pointer animate-fadeDownDelay opacity-0'
       >
-        <p className='animate-bounce hover:bg-[#FDFBF9] p-3 rounded-xl transition-all text-gray-700 text-2xl '>
+        <p className='animate-bounce hover:bg-[#FDFBF9] p-3 rounded-xl transition-all text-gray-700 text-xl '>
           Click to see more details <i className='fa-solid fa-chevron-down'></i>
         </p>
       </div>

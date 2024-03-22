@@ -8,6 +8,8 @@ import Wishes from "../components/Wishes";
 import styled from "styled-components";
 import AngpaoSection from "../components/AngpaoSection";
 import { data } from "../constants/data";
+import ImageSlider from "../components/ImageSlider";
+import RsvpSection from "../components/RsvpSection";
 
 const PageWrapper = styled.div`
   max-width: 100vw;
@@ -27,8 +29,10 @@ const InvitationPage = () => {
 
       <HeroSection />
       <BrideSummarySection />
+      <ImageSlider />
       <VerseSection />
       <CountingDays />
+      <RsvpSection />
       <AngpaoSection />
       <Wishes />
       {/* <GuestsList guestNames={guestNames} /> */}

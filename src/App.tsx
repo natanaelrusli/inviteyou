@@ -74,7 +74,7 @@ function App() {
     </GuestContext.Provider>
   );
 }
-// TODO: tambahin scroll down button
+
 // TODO: rapihin wishes section
 // TODO: tambahin animasi
 

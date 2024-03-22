@@ -92,7 +92,6 @@ const VerseSection = () => {
 
   const handleImageLoad = () => {
     setIsLoading(false);
-    console.log("Image loaded successfully");
   };
 
   return (
