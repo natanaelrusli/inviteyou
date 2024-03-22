@@ -126,7 +126,7 @@ const CountingDays = () => {
         </SectionHeader>
         <DateText>Saturday, {data.weddingDateUTC}</DateText>
         <div className='mt-6 flex flex-col justify-center items-center gap-5'>
-          <CountdownTimer date={data.weddingDate} />
+          <CountdownTimer date='November 25, 2024' />
         </div>
         <ScheduleDiv>
           <img

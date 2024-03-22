@@ -69,7 +69,7 @@ const CountdownTimer = ({
 
   return (
     <>
-      {!card ? (
+      {card ? (
         <CountdownText>{remainingTime} left until the wedding</CountdownText>
       ) : (
         <div className='flex flex-wrap justify-center gap-4 text-center'>
