@@ -4,8 +4,9 @@ import color from "../styles/color";
 import { SectionHeader } from "../styles/styles";
 import { useState } from "react";
 import { data } from "../constants/data";
+import { motion } from "framer-motion";
 
-const Button = styled.button<{ $active?: boolean }>`
+const Button = styled(motion.button)<{ $active?: boolean }>`
   background-color: ${(props) =>
     props.$active ? color.primaryBrown : color.softWhite};
   color: ${(props) => (props.$active ? color.softWhite : color.primaryBrown)};
@@ -20,7 +21,7 @@ const Button = styled.button<{ $active?: boolean }>`
   }
 `;
 
-const Section = styled.section`
+const Section = styled(motion.section)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,8 +45,17 @@ const AngpaoSection = () => {
   const [show, setShow] = useState<boolean>(false);
 
   return (
-    <Section>
+    <Section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1.5 }}
+    >
       <SectionHeader
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.5 }}
         style={{ marginBottom: "0.1em" }}
         $textColor={color.softWhite}
       >
@@ -56,11 +66,17 @@ const AngpaoSection = () => {
         the button below
       </FormCaption>
 
-      <Button onClick={() => setShow(!show)}>Send Gift</Button>
+      <Button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => setShow(!show)}
+      >
+        Send Gift
+      </Button>
       {/* form ends */}
 
       {show && (
-        <div
+        <motion.div
           style={{
             backgroundColor: color.softWhite,
             textAlign: "center",
@@ -71,7 +87,7 @@ const AngpaoSection = () => {
           <h1>{data.bank}</h1>
           <p>{data.bankAccountName}</p>
           <p>{data.bankAccountNumber}</p>
-        </div>
+        </motion.div>
       )}
     </Section>
   );

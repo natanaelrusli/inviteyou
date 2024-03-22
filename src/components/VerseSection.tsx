@@ -1,8 +1,9 @@
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 import { data } from "../constants/data";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
+import color from "../styles/color";
 
 const SkeletonLoader = styled.div`
   min-width: 360px;
@@ -30,7 +31,7 @@ const SkeletonLoader = styled.div`
 
 const Section = styled.section`
   background-color: #fefbf9;
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: ${color.softWhite};
   padding: 5em 2em;
 
   @media (max-width: 768px) {
@@ -75,10 +76,10 @@ const VerseDiv = styled.div`
     margin-top: 1em;
     font-weight: bold;
     letter-spacing: 4px;
-    color: ${(props) => props.theme.textColor};
+    color: ${color.primaryText};
   }
   text-align: center;
-  color: ${(props) => props.theme.textColorSecondary};
+  color: ${color.primaryText};
 
   @media (max-width: 768px) {
     font-size: 1.1em;
@@ -86,7 +87,6 @@ const VerseDiv = styled.div`
 `;
 
 const VerseSection = () => {
-  const theme = useTheme();
   const [isLoading, setIsLoading] = useState(true);
   const { ref, inView } = useInView();
 
@@ -111,7 +111,7 @@ const VerseSection = () => {
           style={{ display: isLoading ? "none" : "block" }}
         />
 
-        <VerseDiv theme={theme}>
+        <VerseDiv>
           <p>“{data.verseContents}”</p>
           <div className='verse'>{data.verse}</div>
         </VerseDiv>

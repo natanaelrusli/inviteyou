@@ -1,77 +1,32 @@
-import "./App.css";
-import "./style.css";
-import { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme } from "./styles/theme";
-import { useEffect, useState } from "react";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { useLocation, useRoutes } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import InvitationPage from "./pages/InvitationPage";
-import ProtectedRoute from "./router/ProtectedRoute";
+import { AnimatePresence } from "framer-motion";
 
-import { GuestContext } from "./context/GuestNameContext";
-import { GuestDataItf } from "./types";
-import ConfirmationPage from "./pages/ConfirmationPage";
+import "./App.css";
+import "./style.css";
+import React from "react";
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const theme = isDarkMode ? darkTheme : lightTheme;
-
-  useEffect(() => {
-    const darkModeMediaQuery = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    );
-
-    const handleChange = (event: MediaQueryListEvent) => {
-      setIsDarkMode(event.matches);
-    };
-
-    darkModeMediaQuery.addEventListener("change", handleChange);
-    setIsDarkMode(darkModeMediaQuery.matches);
-
-    return () => {
-      darkModeMediaQuery.removeEventListener("change", handleChange);
-    };
-  }, []);
-
-  const router = createBrowserRouter([
+  const element = useRoutes([
     {
       path: "/",
       element: <LandingPage />,
     },
     {
       path: "/invitation",
-      element: <ProtectedRoute />,
-      children: [
-        {
-          path: "/invitation",
-          element: <InvitationPage />,
-        },
-      ],
-    },
-    {
-      path: "/confirm",
-      element: <ConfirmationPage />,
-    },
-    {
-      path: "*",
-      element: <h1>404</h1>,
+      element: <InvitationPage />,
     },
   ]);
 
-  const [guest, setGuest] = useState<GuestDataItf>({
-    name: "",
-    age: 0,
-    phone: "",
-    RSVP: false,
-    wishes: "",
-  });
+  const location = useLocation();
+
+  if (!element) return null;
 
   return (
-    <GuestContext.Provider value={{ guest, setGuest }}>
-      <ThemeProvider theme={theme}>
-        <RouterProvider router={router} />
-      </ThemeProvider>
-    </GuestContext.Provider>
+    <AnimatePresence mode='wait'>
+      {React.cloneElement(element, { key: location.pathname })}
+    </AnimatePresence>
   );
 }
 

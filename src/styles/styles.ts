@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import heroImg from "../assets/hero-image.jpg";
+import { motion } from "framer-motion";
 
-export const SectionHeader = styled.h1<{ $textColor?: string }>`
+export const SectionHeader = styled(motion.h1)<{ $textColor?: string }>`
   font-size: 5.5rem;
   font-family: "Alex Brush", cursive;
   font-weight: 400;
@@ -26,7 +27,7 @@ export const SectionHeader = styled.h1<{ $textColor?: string }>`
   }
 `;
 
-export const SectionContainer = styled.div<{
+export const SectionContainer = styled(motion.section)<{
   $bgImg?: string;
   $textColor?: string;
 }>`
