@@ -23,6 +23,8 @@ export const data = {
 };
 
 export const images = {
+  heroImage:
+    "https://images.unsplash.com/photo-1605985687770-2e2e82c9b5f1?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   groomsBiodataPhoto:
     "https://www.indonesia-investments.com/upload/images/joko-widodo-jokowi-president-of-indonesia-2014-2019-indonesia-investments.jpg",
   bridesBiodataPhoto:

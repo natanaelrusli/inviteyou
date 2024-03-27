@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { data } from "../constants/data";
+import { data, images } from "../constants/data";
 import { SectionContainer } from "../styles/styles";
 import color from "../styles/color";
 import { useRef } from "react";
@@ -92,7 +92,7 @@ const HeroSection = () => {
   };
 
   return (
-    <SectionContainer $bgImg='https://images.unsplash.com/photo-1605985687770-2e2e82c9b5f1?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'>
+    <SectionContainer $bgImg={images.heroImage}>
       <SubHeader>The marriage of</SubHeader>
       <Header>
         {data.groomsNickname} & {data.bridesNickname}
@@ -101,9 +101,9 @@ const HeroSection = () => {
       <HashtagText>#{data.hashtag}</HashtagText>
       <div
         onClick={handleScrollClick}
-        className='absolute bottom-12 font-semibold cursor-pointer animate-fadeDownDelay opacity-0'
+        className='absolute bottom-4 right-2 flex justify-end w-full font-semibold cursor-pointer animate-fadeDownDelay opacity-0'
       >
-        <p className='animate-bounce hover:bg-[#FDFBF9] p-3 rounded-xl transition-all text-gray-700 text-xl '>
+        <p className='animate-bounce hover:bg-[#FDFBF9] p-3 rounded-xl transition-all text-gray-700 text-xl max-lg:text-sm'>
           Click to see more details <i className='fa-solid fa-chevron-down'></i>
         </p>
       </div>

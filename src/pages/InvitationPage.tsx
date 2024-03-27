@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import { motion } from "framer-motion";
 
 import BrideSummarySection from "../components/BrideSummarySection";
 import CountingDays from "../components/CountingDays";
@@ -7,10 +8,9 @@ import VerseSection from "../components/VerseSection";
 import Wishes from "../components/Wishes";
 import styled from "styled-components";
 import AngpaoSection from "../components/AngpaoSection";
-import { data } from "../constants/data";
-import ImageSlider from "../components/ImageSlider";
 import RsvpSection from "../components/RsvpSection";
-import { motion } from "framer-motion";
+
+import { data } from "../constants/data";
 
 const PageWrapper = styled.div`
   max-width: 100vw;
@@ -18,11 +18,6 @@ const PageWrapper = styled.div`
 `;
 
 const visible = { opacity: 1, y: 0, transition: { duration: 0.5 } };
-
-// const itemVariants = {
-//   hidden: { opacity: 0, y: 10 },
-//   visible,
-// };
 
 const InvitationPage = () => {
   return (
@@ -43,17 +38,11 @@ const InvitationPage = () => {
 
         <HeroSection />
         <BrideSummarySection />
-
-        <div className='py-12 bg-soft-white'>
-          <ImageSlider />
-        </div>
-
         <VerseSection />
         <CountingDays />
         <RsvpSection />
         <AngpaoSection />
         <Wishes />
-        {/* <GuestsList guestNames={guestNames} /> */}
       </PageWrapper>
     </motion.div>
   );

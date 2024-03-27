@@ -15,7 +15,7 @@ const SectionContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4em;
+  padding: 2em;
   flex-direction: column;
 
   @media (max-width: 768px) {
@@ -53,66 +53,6 @@ const DateText = styled.div`
   }
 `;
 
-const ScheduleDiv = styled.div<{ $reversed?: boolean }>`
-  display: flex;
-  justify-content: space-between;
-  margin: 3em;
-  gap: 5em;
-  flex-direction: ${(props) =>
-    props.$reversed === true ? "row-reverse" : "row"};
-
-  @media (max-width: 768px) {
-    margin: 2em 1em;
-    flex-direction: column;
-    align-items: center;
-    gap: 2.2em;
-  }
-
-  img {
-    width: 270px;
-    height: 270px;
-    object-fit: cover;
-    border-radius: 1em;
-  }
-
-  .schedule-description {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1em;
-    font-size: 0.8;
-
-    @media (max-width: 768px) {
-      width: 85%;
-    }
-
-    h1 {
-      color: white;
-      letter-spacing: 3px;
-    }
-
-    .date,
-    .time,
-    .address {
-      color: white;
-      font-weight: 400;
-    }
-
-    button {
-      background-color: transparent;
-      border: 1px solid white;
-      color: white;
-      width: fit-content;
-      margin: 0 auto;
-      padding: 1em 3em;
-      border-radius: 1em;
-      cursor: pointer;
-      font-weight: bold;
-    }
-  }
-`;
-
 const CountingDays = () => {
   const openMaps = (url: string) => {
     window.open(url);
@@ -125,47 +65,72 @@ const CountingDays = () => {
           Counting <span>the</span> Days
         </SectionHeader>
         <DateText>Saturday, {data.weddingDateUTC}</DateText>
-        <div className='mt-6 flex flex-col justify-center items-center gap-5'>
+
+        <div className='mt-6 flex justify-center items-center gap-5'>
           <CountdownTimer date='November 25, 2024' />
         </div>
-        <ScheduleDiv>
-          <img
-            src='https://unsplash.com/photos/w5_xJ13Ryf0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzB8fGJyaWRlJTIwYW5kJTIwZ3Jvb218ZW58MHx8fHwxNzEwMjkxMDQ4fDA&force=true&w=640'
-            alt='bride and groom image'
-          />
-          <div className='schedule-description'>
-            <h1>Pemberkatan Pernikahan</h1>
-            <div className='date'>{data.weddingDate}</div>
-            <div className='time'>{data.blessingTime}</div>
-            <div className='address'>{data.blessingLocation}</div>
-            <button
-              onClick={() =>
-                openMaps("https://maps.app.goo.gl/C3HWf7TsJvMzwLb27")
-              }
-            >
-              Open in Maps
-            </button>
+
+        <div className='mt-8 flex gap-5 justify-center items-center max-lg:flex-col'>
+          <div className='mb-4'>
+            <img
+              className='rounded-lg shadow-lg shadow-gray-500 w-[700px]'
+              src='https://unsplash.com/photos/w5_xJ13Ryf0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzB8fGJyaWRlJTIwYW5kJTIwZ3Jvb218ZW58MHx8fHwxNzEwMjkxMDQ4fDA&force=true&w=640'
+              alt='bride and groom image'
+            />
           </div>
-        </ScheduleDiv>
-        <ScheduleDiv $reversed={true}>
-          <img
-            src='https://unsplash.com/photos/w5_xJ13Ryf0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzB8fGJyaWRlJTIwYW5kJTIwZ3Jvb218ZW58MHx8fHwxNzEwMjkxMDQ4fDA&force=true&w=640'
-            alt='bride and groom image'
-          />
-          <div className='schedule-description'>
-            <h1>Resepsi</h1>
-            <div className='date'>{data.weddingDate}</div>
-            <div className='time'>{data.receptionTime}</div>
-            <div className='address'>{data.receptionLocation}</div>
-            <button
-              onClick={() =>
-                openMaps("https://maps.app.goo.gl/NoUdZD1XFS2q7Hdz6")
-              }
-            >
-              Open in Maps
-            </button>
+
+          <div className='schedule-description flex flex-col h-fit gap-4 my-8 border border-soft-brown p-3 bg-soft-white rounded-lg'>
+            <h1 className='text-2xl text-center text-soft-brown font-bold'>
+              Pemberkatan Pernikahan
+            </h1>
+            <div className='flex flex-col gap-2 text-soft-brown'>
+              <div className='flex justify-between pb-2 border-b border-b-soft-brown'>
+                <div className='date'>{data.weddingDate}</div>
+                <div className='time'>{data.blessingTime}</div>
+              </div>
+              <div className='address'>{data.blessingLocation}</div>
+              <button
+                className='bg-soft-brown p-3 rounded-lg text-white'
+                onClick={() =>
+                  openMaps("https://maps.app.goo.gl/C3HWf7TsJvMzwLb27")
+                }
+              >
+                Open in Maps
+              </button>
+            </div>
           </div>
-        </ScheduleDiv>
+        </div>
+
+        <div className='mt-8 flex flex-row-reverse gap-5 justify-center items-center max-lg:flex-col'>
+          <div className='mb-4'>
+            <img
+              className='rounded-lg shadow-lg shadow-gray-500 w-[700px]'
+              src='https://unsplash.com/photos/w5_xJ13Ryf0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzB8fGJyaWRlJTIwYW5kJTIwZ3Jvb218ZW58MHx8fHwxNzEwMjkxMDQ4fDA&force=true&w=640'
+              alt='bride and groom image'
+            />
+          </div>
+
+          <div className='schedule-description flex flex-col h-fit gap-4 my-8 border border-soft-brown p-3 bg-soft-white rounded-lg'>
+            <h1 className='text-2xl text-center text-soft-brown font-bold'>
+              Resepsi
+            </h1>
+            <div className='flex flex-col gap-2 text-soft-brown'>
+              <div className='flex justify-between pb-2 border-b border-b-soft-brown'>
+                <div className='date'>{data.weddingDate}</div>
+                <div className='time'>{data.blessingTime}</div>
+              </div>
+              <div className='address'>{data.blessingLocation}</div>
+              <button
+                className='bg-soft-brown p-3 rounded-lg text-white'
+                onClick={() =>
+                  openMaps("https://maps.app.goo.gl/NoUdZD1XFS2q7Hdz6")
+                }
+              >
+                Open in Maps
+              </button>
+            </div>
+          </div>
+        </div>
       </SectionContainer>
     </Section>
   );

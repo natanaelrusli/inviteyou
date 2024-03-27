@@ -72,14 +72,16 @@ const CountdownTimer = ({
       {card ? (
         <CountdownText>{remainingTime} left until the wedding</CountdownText>
       ) : (
-        <div className='flex flex-wrap justify-center gap-4 text-center'>
-          <div className='flex gap-3 max-lg:w-[250px]'>
-            <TimeCard time={years} text='Years' />
-            <TimeCard time={months} text='Months' />
-          </div>
-          <div className='flex gap-3 max-lg:w-[250px]'>
-            <TimeCard time={weeks} text='Weeks' />
-            <TimeCard time={days} text='Days' />
+        <div className='flex flex-col flex-wrap justify-center gap-4 text-center'>
+          <div className='flex flex-wrap gap-5 justify-center'>
+            <div className='flex gap-3 max-lg:w-[250px]'>
+              <TimeCard time={years} text='Years' />
+              <TimeCard time={months} text='Months' />
+            </div>
+            <div className='flex gap-3 max-lg:w-[250px]'>
+              <TimeCard time={weeks} text='Weeks' />
+              <TimeCard time={days} text='Days' />
+            </div>
           </div>
           <p className='text-2xl font-semibold text-white'>
             Left until the wedding

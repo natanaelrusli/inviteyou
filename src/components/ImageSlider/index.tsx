@@ -5,7 +5,16 @@ import "swiper/css";
 import "swiper/css/effect-cards";
 import "./styles.css";
 
-const ImageSlider = () => {
+interface ImageItf {
+  src: string;
+  title: string;
+}
+
+interface ImageSliderItf {
+  images?: ImageItf[];
+}
+
+const ImageSlider = ({ images }: ImageSliderItf) => {
   return (
     <div>
       <Swiper
@@ -14,15 +23,15 @@ const ImageSlider = () => {
         modules={[EffectCards]}
         className='mySwiper'
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        {images?.map((image) => (
+          <SwiperSlide>
+            <img
+              className='h-full w-full object-cover'
+              src={image.src}
+              alt={image.title}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
