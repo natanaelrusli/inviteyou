@@ -71,9 +71,9 @@ const CountingDays = () => {
         </div>
 
         <div className='mt-8 flex gap-5 justify-center items-center max-lg:flex-col'>
-          <div className='mb-4'>
+          <div className='mb-4 rounded-lg overflow-hidden hover:shadow-lg hover:shadow-gray-600 transition-shadow duration-700'>
             <img
-              className='rounded-lg shadow-lg shadow-gray-500 w-[700px]'
+              className='shadow-lg shadow-gray-500 w-[700px] hover:scale-110 transition-all duration-700'
               src='https://unsplash.com/photos/w5_xJ13Ryf0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzB8fGJyaWRlJTIwYW5kJTIwZ3Jvb218ZW58MHx8fHwxNzEwMjkxMDQ4fDA&force=true&w=640'
               alt='bride and groom image'
             />
@@ -102,9 +102,9 @@ const CountingDays = () => {
         </div>
 
         <div className='mt-8 flex flex-row-reverse gap-5 justify-center items-center max-lg:flex-col'>
-          <div className='mb-4'>
+          <div className='mb-4 rounded-lg overflow-hidden hover:shadow-lg hover:shadow-gray-600 transition-shadow duration-700'>
             <img
-              className='rounded-lg shadow-lg shadow-gray-500 w-[700px]'
+              className='shadow-lg shadow-gray-500 w-[700px] hover:scale-110 transition-all duration-700'
               src='https://unsplash.com/photos/w5_xJ13Ryf0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzB8fGJyaWRlJTIwYW5kJTIwZ3Jvb218ZW58MHx8fHwxNzEwMjkxMDQ4fDA&force=true&w=640'
               alt='bride and groom image'
             />

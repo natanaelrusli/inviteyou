@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import color from "../styles/color";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const BaseInput = styled(motion.input).attrs({
   initial: { opacity: 0 },
@@ -66,46 +66,54 @@ const RsvpSection = () => {
       </div>
 
       {isFilled && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className={`bg-soft-brown w-3/12 min-w-[360px] h-fit max-md:w-10/12 m-auto rounded-lg p-10 text-soft-white`}
-        >
+        <AnimatePresence>
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 1 }}
-            className='mb-6 text-xl'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            className={`bg-soft-brown w-3/12 min-w-[360px] h-fit max-md:w-10/12 m-auto rounded-lg p-10 text-soft-white`}
           >
-            Please confirm by filling the data below
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className='mb-6 text-xl'
+            >
+              Please confirm by filling the data below
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className='flex flex-col w-full h-full justify-center items-center gap-4'
+            >
+              <Input placeholder='Your Name' className='w-full' />
+              <Input placeholder='Phone Number' className='w-full' />
+            </motion.div>
+
+            <div className='w-full flex justify-center gap-5 mt-3'>
+              <Button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 1.1 }}
+                className='mt-3'
+                onClick={() => setIsFilled(false)}
+              >
+                Cancel
+              </Button>
+              <Button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 1.1 }}
+                className='mt-3'
+              >
+                Submit
+              </Button>
+            </div>
           </motion.div>
-
-          <div className='flex flex-col w-full h-full justify-center items-center gap-4'>
-            <Input placeholder='Your Name' className='w-full' />
-            <Input placeholder='Phone Number' className='w-full' />
-          </div>
-
-          <div className='w-full flex justify-center gap-5 mt-3'>
-            <Button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.9, delay: 1 }}
-              className='mt-3'
-              onClick={() => setIsFilled(false)}
-            >
-              Cancel
-            </Button>
-            <Button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.9, delay: 1 }}
-              className='mt-3'
-            >
-              Submit
-            </Button>
-          </div>
-        </motion.div>
+        </AnimatePresence>
       )}
     </div>
   );
