@@ -102,7 +102,7 @@ const RsvpSection = () => {
               {attend && (
                 <div className='flex w-full flex-col'>
                   <p>How many person will come?</p>
-                  <div className='w-full flex mt-3 gap-2'>
+                  <div className='w-full flex mt-3 gap-2 justify-center'>
                     <InverseButton
                       $active={personCount === 1}
                       onClick={() => setPersonCount(1)}
@@ -135,7 +135,7 @@ const RsvpSection = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 1.1 }}
-                className='mt-6 text-white'
+                className='mt-6 text-white cursor-pointer'
                 onClick={() => setIsFilled(false)}
               >
                 Cancel

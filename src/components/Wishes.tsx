@@ -8,13 +8,13 @@ import { GuestContext } from "../context/GuestNameContext";
 const BaseInput = styled.input`
   padding: 1em;
   border-radius: 13px;
-  border: none;
+  border: 2px solid ${color.primaryBrown};
   outline: none;
-  background-color: ${color.primaryText};
-  color: ${color.softWhite};
+  background-color: ${color.softWhite};
+  color: ${color.primaryText};
   width: 40%;
   min-width: 300px;
-  max-width: 500px;
+  max-width: 400px;
 
   @media (max-width: 921px) {
     width: 60%;
