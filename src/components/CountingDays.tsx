@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { data } from "../constants/data";
 import CountdownTimer from "./CountdownTimer";
+import AutoplaySlider from "./AutoplaySlider";
 
 const Section = styled.section`
   background-image: url(https://alexandra.bridestory.com/image/upload/f_webp/v1/assets/maria-orlova-12yiylq49bi-unsplash2x-Hyj7ryFt6.webp);
-  height: fit-content;
-  object-fit: cover;
+  object-fit: contain;
   background-position: center;
 `;
 
@@ -30,7 +30,7 @@ const SectionHeader = styled.h1`
   font-style: normal;
   color: white;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     text-align: center;
   }
 
@@ -53,6 +53,17 @@ const DateText = styled.div`
   }
 `;
 
+const imageSlides = [
+  {
+    src: "https://unsplash.com/photos/w5_xJ13Ryf0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzB8fGJyaWRlJTIwYW5kJTIwZ3Jvb218ZW58MHx8fHwxNzEwMjkxMDQ4fDA&force=true&w=640",
+    title: "bride and groom image",
+  },
+  {
+    src: "https://unsplash.com/photos/w5_xJ13Ryf0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzB8fGJyaWRlJTIwYW5kJTIwZ3Jvb218ZW58MHx8fHwxNzEwMjkxMDQ4fDA&force=true&w=640",
+    title: "bride and groom image",
+  },
+];
+
 const CountingDays = () => {
   const openMaps = (url: string) => {
     window.open(url);
@@ -71,12 +82,8 @@ const CountingDays = () => {
         </div>
 
         <div className='mt-8 flex gap-5 justify-center items-center max-lg:flex-col'>
-          <div className='mb-4 rounded-lg overflow-hidden hover:shadow-lg hover:shadow-gray-600 transition-shadow duration-700'>
-            <img
-              className='shadow-lg shadow-gray-500 w-[700px] hover:scale-110 transition-all duration-700'
-              src='https://unsplash.com/photos/w5_xJ13Ryf0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzB8fGJyaWRlJTIwYW5kJTIwZ3Jvb218ZW58MHx8fHwxNzEwMjkxMDQ4fDA&force=true&w=640'
-              alt='bride and groom image'
-            />
+          <div className='mb-4 rounded-lg overflow-hidden w-full'>
+            <AutoplaySlider images={imageSlides} />
           </div>
 
           <div className='schedule-description flex flex-col h-fit gap-4 my-8 border border-soft-brown p-3 bg-soft-white rounded-lg'>
@@ -102,12 +109,8 @@ const CountingDays = () => {
         </div>
 
         <div className='mt-8 flex flex-row-reverse gap-5 justify-center items-center max-lg:flex-col'>
-          <div className='mb-4 rounded-lg overflow-hidden hover:shadow-lg hover:shadow-gray-600 transition-shadow duration-700'>
-            <img
-              className='shadow-lg shadow-gray-500 w-[700px] hover:scale-110 transition-all duration-700'
-              src='https://unsplash.com/photos/w5_xJ13Ryf0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MzB8fGJyaWRlJTIwYW5kJTIwZ3Jvb218ZW58MHx8fHwxNzEwMjkxMDQ4fDA&force=true&w=640'
-              alt='bride and groom image'
-            />
+          <div className='mb-4 rounded-lg overflow-hidden w-full'>
+            <AutoplaySlider images={imageSlides} />
           </div>
 
           <div className='schedule-description flex flex-col h-fit gap-4 my-8 border border-soft-brown p-3 bg-soft-white rounded-lg'>

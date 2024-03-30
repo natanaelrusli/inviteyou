@@ -5,3 +5,12 @@ export interface GuestDataItf {
   RSVP: boolean;
   wishes: string;
 }
+
+export interface ImageItf {
+  src: string;
+  title: string;
+}
+
+export interface ImageSliderItf {
+  images?: ImageItf[];
+}
