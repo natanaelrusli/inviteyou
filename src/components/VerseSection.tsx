@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import color from "../styles/color";
 import ImageSlider from "./ImageSlider";
+import { xjpJpg, gibranJpg, luhutJpg, kjuJpg } from "../assets";
 
 export const SkeletonLoader = styled.div`
   min-width: 360px;
@@ -87,12 +88,7 @@ const VerseDiv = styled.div`
 `;
 
 const VerseSection = () => {
-  // const [isLoading, setIsLoading] = useState(true);
   const { ref, inView } = useInView();
-
-  // const handleImageLoad = () => {
-  //   setIsLoading(false);
-  // };
 
   return (
     <Section id='verse-section'>
@@ -105,16 +101,24 @@ const VerseSection = () => {
         <ImageSlider
           images={[
             {
+              src: xjpJpg,
+              title: "xjp",
+            },
+            {
+              src: luhutJpg,
+              title: "luhut",
+            },
+            {
+              src: gibranJpg,
+              title: "gibran",
+            },
+            {
+              src: kjuJpg,
+              title: "KJU",
+            },
+            {
               src: "https://www.indonesia-investments.com/upload/images/joko-widodo-jokowi-president-of-indonesia-2014-2019-indonesia-investments.jpg",
               title: "image 1",
-            },
-            {
-              src: "https://unsplash.com/photos/MMNgGsFEbuI/download?force=true&w=2400",
-              title: "image 2",
-            },
-            {
-              src: "https://images.unsplash.com/photo-1711419398844-5fd29b9e0543?q=80&w=3086&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              title: "image 3",
             },
           ]}
         />

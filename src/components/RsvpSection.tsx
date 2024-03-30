@@ -33,9 +33,17 @@ const Button = styled(motion.button).attrs({})<{ $active?: boolean }>`
   border-radius: 8px;
 `;
 
+const InverseButton = styled(Button)`
+  background-color: ${(props) =>
+    props.$active ? color.softWhite : color.primaryBrown};
+  color: ${(props) => (props.$active ? color.primaryBrown : color.softWhite)};
+  border: 1px solid ${color.softWhite};
+`;
+
 const RsvpSection = () => {
   const [isFilled, setIsFilled] = useState<boolean>();
   const [attend, setAttend] = useState<boolean>();
+  const [personCount, setPersonCount] = useState<number>(0);
 
   const handleAttend = (status: boolean) => {
     if (!isFilled) setIsFilled(true);
@@ -91,6 +99,25 @@ const RsvpSection = () => {
             >
               <Input placeholder='Your Name' className='w-full' />
               <Input placeholder='Phone Number' className='w-full' />
+              {attend && (
+                <div className='flex w-full flex-col'>
+                  <p>How many person will come?</p>
+                  <div className='w-full flex mt-3 gap-2'>
+                    <InverseButton
+                      $active={personCount === 1}
+                      onClick={() => setPersonCount(1)}
+                    >
+                      1 Person
+                    </InverseButton>
+                    <InverseButton
+                      $active={personCount === 2}
+                      onClick={() => setPersonCount(2)}
+                    >
+                      2 Person
+                    </InverseButton>
+                  </div>
+                </div>
+              )}
             </motion.div>
 
             <div className='w-full flex justify-center gap-5 mt-3'>
@@ -98,19 +125,21 @@ const RsvpSection = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 1.1 }}
-                className='mt-3'
-                onClick={() => setIsFilled(false)}
-              >
-                Cancel
-              </Button>
-              <Button
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1.1 }}
-                className='mt-3'
+                className='mt-3 w-full'
               >
                 Submit
               </Button>
+            </div>
+            <div className='w-full flex justify-center'>
+              <motion.a
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 1.1 }}
+                className='mt-6 text-white'
+                onClick={() => setIsFilled(false)}
+              >
+                Cancel
+              </motion.a>
             </div>
           </motion.div>
         </AnimatePresence>

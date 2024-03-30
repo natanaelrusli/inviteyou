@@ -3,7 +3,7 @@ import { Button as StyledButton } from "./style";
 
 interface ButtonProps {
   children: ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Index = ({ children, onClick, ...restProps }: ButtonProps) => {

@@ -12,14 +12,12 @@ const BaseInput = styled.input`
   outline: none;
   background-color: ${color.primaryText};
   color: ${color.softWhite};
-  width: 300px;
-
-  @media (max-width: 768px) {
-    width: 90%;
-  }
+  width: 40%;
+  min-width: 300px;
+  max-width: 500px;
 
   @media (max-width: 921px) {
-    width: 80%;
+    width: 60%;
   }
 
   &::placeholder {
@@ -42,10 +40,8 @@ const Button = styled.button<{ $active?: boolean }>`
   outline: none;
   border-radius: 8px;
   cursor: pointer;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
+  width: 30%;
+  min-width: 300px;
 `;
 
 const Section = styled.section`

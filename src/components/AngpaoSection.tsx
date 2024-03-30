@@ -5,7 +5,7 @@ import { SectionHeader } from "../styles/styles";
 import { useState } from "react";
 import { data } from "../constants/data";
 import { AnimatePresence, motion } from "framer-motion";
-import Button from "./Button";
+import Button from "./InButton";
 
 const Section = styled(motion.section)`
   display: flex;
