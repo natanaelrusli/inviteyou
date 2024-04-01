@@ -17,6 +17,10 @@ function App() {
       path: "/invitation",
       element: <InvitationPage />,
     },
+    {
+      path: "*",
+      element: <LandingPage />,
+    },
   ]);
 
   const location = useLocation();
@@ -29,8 +33,5 @@ function App() {
     </AnimatePresence>
   );
 }
-
-// TODO: rapihin wishes section
-// TODO: tambahin animasi
 
 export default App;

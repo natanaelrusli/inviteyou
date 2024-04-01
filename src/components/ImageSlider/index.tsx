@@ -16,12 +16,16 @@ interface ImageSliderItf {
 
 const ImageSlider = ({ images }: ImageSliderItf) => {
   return (
-    <div>
+    <div className='mx-6'>
       <Swiper
         effect={"cards"}
         grabCursor={true}
         modules={[EffectCards]}
         className='mySwiper'
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
       >
         {images?.map((image) => (
           <SwiperSlide>

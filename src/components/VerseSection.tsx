@@ -93,9 +93,9 @@ const VerseSection = () => {
   return (
     <Section id='verse-section'>
       <SectionContainer
-        ref={ref} // Pass the ref to SectionContainer
+        ref={ref}
         initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }} // Use inView to conditionally animate
+        animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
         transition={{ duration: 1 }}
       >
         <ImageSlider
