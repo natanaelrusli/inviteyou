@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import { Link, useSearchParams } from "react-router-dom";
+
+import MessagesCarousel from "./MessagesCarousel";
+
+import { GuestContext } from "../context/GuestNameContext";
+
 import { SectionHeader } from "../styles/styles";
 import color from "../styles/color";
-import { Link, useSearchParams } from "react-router-dom";
-import { useContext } from "react";
-import { GuestContext } from "../context/GuestNameContext";
 
 const BaseInput = styled.input`
   padding: 1em;
@@ -113,6 +117,8 @@ const Wishes = () => {
         <Button>SUBMIT</Button>
       </Link>
       {/* form ends */}
+
+      <MessagesCarousel />
     </Section>
   );
 };

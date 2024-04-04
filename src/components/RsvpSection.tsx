@@ -106,12 +106,14 @@ const RsvpSection = () => {
                     <InverseButton
                       $active={personCount === 1}
                       onClick={() => setPersonCount(1)}
+                      className='w-full'
                     >
                       1 Person
                     </InverseButton>
                     <InverseButton
                       $active={personCount === 2}
                       onClick={() => setPersonCount(2)}
+                      className='w-full'
                     >
                       2 Person
                     </InverseButton>
