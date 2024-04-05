@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import color from "../styles/color";
 import { data } from "../constants/data";
 import { fadeDown, fadeIn } from "../styles/animations";
-import { SectionContainer } from "../styles/styles";
+import { motion } from "framer-motion";
 
 const SubHeader = styled.p`
   font-size: 1.5rem;
@@ -67,6 +67,17 @@ const TopSection = styled.div`
   align-items: center;
 `;
 
+const SectionContainer = styled(motion.section)<{ $bgImg?: string }>`
+  background-image: ${(props) => `url(${props.$bgImg})` || `url(${heroImg})`};
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 const LandingButton = styled(Link)`
   padding: 1em 3em;
   background-color: transparent;
@@ -77,6 +88,10 @@ const LandingButton = styled(Link)`
   border-radius: 16px;
   animation: ${fadeIn} 1s ease-in-out 2.4s forwards;
   opacity: 0;
+
+  &:hover ${SectionContainer} {
+    transform: scale(1.2);
+  }
 
   @media (max-width: 768px) {
     padding: 1em 2em;
@@ -95,7 +110,7 @@ const LandingButton = styled(Link)`
 
 const Landing = () => {
   return (
-    <SectionContainer $bgImg={heroImg}>
+    <SectionContainer $bgImg={heroImg} className='duration-300'>
       <TopSection>
         <SubHeader>The marriage of</SubHeader>
         <Header>
@@ -104,7 +119,12 @@ const Landing = () => {
         <DateSubHeader>{data.weddingDate}</DateSubHeader>
         <HashtagText>#{data.hashtag}</HashtagText>
       </TopSection>
-      <LandingButton to={`/invitation?`}>Open Invitation</LandingButton>
+      <LandingButton
+        className='group transition-all duration-300'
+        to={`/invitation?`}
+      >
+        Open Invitation
+      </LandingButton>
     </SectionContainer>
   );
 };

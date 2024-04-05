@@ -23,6 +23,8 @@ export default {
         "soft-white": "#FDFBF9",
         bermuda: "#78dcca",
         "soft-brown": "#69635E",
+        primary: "#69635E",
+        secondary: "#FDFBF9",
       },
       keyframes: {
         wiggle: {

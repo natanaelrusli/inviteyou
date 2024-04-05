@@ -118,7 +118,9 @@ const Wishes = () => {
       </Link>
       {/* form ends */}
 
-      <MessagesCarousel />
+      <div className='mt-12'>
+        <MessagesCarousel />
+      </div>
     </Section>
   );
 };

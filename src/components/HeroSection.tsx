@@ -1,8 +1,8 @@
+import { useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import { data, images } from "../constants/data";
 import { SectionContainer } from "../styles/styles";
 import color from "../styles/color";
-import { useRef } from "react";
 
 const fadeDown = keyframes`
   from {
