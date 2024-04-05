@@ -63,7 +63,7 @@ const MessagesCarousel = ({ delay }: { delay?: number }) => {
 
   return (
     <div className='p-8 bg-white border-2 border-primary rounded-xl'>
-      <h1 className='font-alexBrush text-[65px] text-primary text-center'>
+      <h1 className='font-alexBrush text-[65px] text-primary text-center max-lg:text-[50px]'>
         Messages
       </h1>
       <div className='border-t border-primary w-5/12 m-auto'></div>

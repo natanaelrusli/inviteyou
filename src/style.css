@@ -1156,11 +1156,28 @@ video {
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
+
+  .max-lg\:text-4xl{
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .max-lg\:text-\[50px\]{
+    font-size: 50px;
+  }
 }
 
 @media not all and (min-width: 768px){
   .max-md\:w-10\/12{
     width: 83.333333%;
+  }
+
+  .max-md\:w-full{
+    width: 100%;
+  }
+
+  .max-md\:w-11\/12{
+    width: 91.666667%;
   }
 
   .max-md\:text-\[36px\]{
