@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link, useSearchParams } from "react-router-dom";
 
 import MessagesCarousel from "./MessagesCarousel";
+import InButton from "./InButton";
 
 import { GuestContext } from "../context/GuestNameContext";
 
@@ -33,19 +34,6 @@ const Input = styled(BaseInput).attrs({ type: "text" })``;
 
 const TextArea = styled(BaseInput).attrs({ as: "textarea" })`
   height: 100px;
-`;
-
-const Button = styled.button<{ $active?: boolean }>`
-  background-color: ${(props) =>
-    props.$active ? color.primaryBrown : color.softWhite};
-  color: ${(props) => (props.$active ? color.softWhite : color.primaryBrown)};
-  padding: 1em 3em;
-  border: 1px solid ${color.primaryText};
-  outline: none;
-  border-radius: 8px;
-  cursor: pointer;
-  width: 30%;
-  min-width: 300px;
 `;
 
 const Section = styled.section`
@@ -114,7 +102,7 @@ const Wishes = () => {
         }}
         to={`/confirm?name=${guest.name}&rsvp=${guest.RSVP}`}
       >
-        <Button>SUBMIT</Button>
+        <InButton className='w-[384px]'>Send</InButton>
       </Link>
       {/* form ends */}
 

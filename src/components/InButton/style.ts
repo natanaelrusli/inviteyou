@@ -14,5 +14,6 @@ export const Button = styled(motion.button)<{ $active?: boolean }>`
 
   @media (max-width: 768px) {
     width: 80%;
+    min-width: 300px;
   }
 `;

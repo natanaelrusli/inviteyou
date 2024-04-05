@@ -684,12 +684,32 @@ video {
   width: 100%;
 }
 
+.w-4\/12{
+  width: 33.333333%;
+}
+
+.w-1\/12{
+  width: 8.333333%;
+}
+
+.w-\[384px\]{
+  width: 384px;
+}
+
 .min-w-\[360px\]{
   min-width: 360px;
 }
 
+.min-w-\[384px\]{
+  min-width: 384px;
+}
+
 .max-w-\[40vw\]{
   max-width: 40vw;
+}
+
+.max-w-\[100px\]{
+  max-width: 100px;
 }
 
 .grow{
