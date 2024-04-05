@@ -76,10 +76,10 @@ const MessagesCarousel = ({ delay }: { delay?: number }) => {
         pagination={{
           dynamicBullets: true,
         }}
-        spaceBetween={20}
+        spaceBetween={40}
         loop={true}
         slidesPerView={isMobile ? 1 : 2}
-        className='mySwiper w-[500px] h-fit my-5 pb-5'
+        className='mySwiper h-fit w-full my-5 pb-5'
       >
         {dummyMessages.map((data) => (
           <SwiperSlide className='gap-3'>
