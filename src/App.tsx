@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import "./App.css";
 import "./style.css";
 import React from "react";
+import { HelmetProvider } from "react-helmet-async";
 
 function App() {
   const element = useRoutes([
@@ -28,9 +29,11 @@ function App() {
   if (!element) return null;
 
   return (
-    <AnimatePresence mode='wait'>
-      {React.cloneElement(element, { key: location.pathname })}
-    </AnimatePresence>
+    <HelmetProvider>
+      <AnimatePresence mode='wait'>
+        {React.cloneElement(element, { key: location.pathname })}
+      </AnimatePresence>
+    </HelmetProvider>
   );
 }
 

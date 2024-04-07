@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 import Landing from "../components/Landing";
 import styled from "styled-components";

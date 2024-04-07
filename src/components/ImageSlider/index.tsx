@@ -27,9 +27,10 @@ const ImageSlider = ({ images }: ImageSliderItf) => {
           disableOnInteraction: false,
         }}
       >
-        {images?.map((image) => (
-          <SwiperSlide>
+        {images?.map((image, i) => (
+          <SwiperSlide key={`imageSlider-${i}`}>
             <img
+              key={`imageSlider-img-${i}`}
               className='h-full w-full object-cover'
               src={image.src}
               alt={image.title}

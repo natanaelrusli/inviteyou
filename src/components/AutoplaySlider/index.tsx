@@ -26,14 +26,20 @@ const index = ({ images, delay, pagination }: AutoplaySliderProps) => {
         pagination={pagination || false}
         modules={[Autoplay, Pagination, Navigation]}
       >
-        {images?.map((image) => (
+        {images?.map((image, i) => (
           <SwiperSlide
+            key={`autoplaySlider-${i}`}
             style={{
               backgroundColor: "transparent",
             }}
             className='overflow-hidden w-full'
           >
-            <img src={image.src} alt={image.title} className='h-full w-full' />
+            <img
+              key={`autoplaySlider-img-${i}`}
+              src={image.src}
+              alt={image.title}
+              className='h-full w-full'
+            />
           </SwiperSlide>
         ))}
       </Swiper>

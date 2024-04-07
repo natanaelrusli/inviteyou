@@ -672,8 +672,8 @@ video {
   width: 300px;
 }
 
-.w-\[500px\]{
-  width: 500px;
+.w-\[384px\]{
+  width: 384px;
 }
 
 .w-\[70px\]{
@@ -684,49 +684,12 @@ video {
   width: 100%;
 }
 
-.w-4\/12{
-  width: 33.333333%;
-}
-
-.w-1\/12{
-  width: 8.333333%;
-}
-
-.w-\[384px\]{
-  width: 384px;
-}
-
-.w-6\/12{
-  width: 50%;
-}
-
-.w-fit{
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
 .min-w-\[360px\]{
   min-width: 360px;
 }
 
-.min-w-\[384px\]{
-  min-width: 384px;
-}
-
 .max-w-\[40vw\]{
   max-width: 40vw;
-}
-
-.max-w-\[100px\]{
-  max-width: 100px;
-}
-
-.max-w-72{
-  max-width: 18rem;
-}
-
-.max-w-full{
-  max-width: 100%;
 }
 
 .grow{
@@ -871,6 +834,11 @@ video {
   border-top-width: 1px;
 }
 
+.border-primary{
+  --tw-border-opacity: 1;
+  border-color: rgb(105 99 94 / var(--tw-border-opacity));
+}
+
 .border-soft-brown{
   --tw-border-opacity: 1;
   border-color: rgb(105 99 94 / var(--tw-border-opacity));
@@ -879,11 +847,6 @@ video {
 .border-white{
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
-}
-
-.border-primary{
-  --tw-border-opacity: 1;
-  border-color: rgb(105 99 94 / var(--tw-border-opacity));
 }
 
 .border-b-soft-brown{
@@ -1031,6 +994,11 @@ video {
   color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
+.text-primary{
+  --tw-text-opacity: 1;
+  color: rgb(105 99 94 / var(--tw-text-opacity));
+}
+
 .text-soft-brown{
   --tw-text-opacity: 1;
   color: rgb(105 99 94 / var(--tw-text-opacity));
@@ -1044,11 +1012,6 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-primary{
-  --tw-text-opacity: 1;
-  color: rgb(105 99 94 / var(--tw-text-opacity));
 }
 
 .opacity-0{
@@ -1126,14 +1089,6 @@ video {
     width: 250px;
   }
 
-  .max-lg\:w-9\/12{
-    width: 75%;
-  }
-
-  .max-lg\:w-10\/12{
-    width: 83.333333%;
-  }
-
   .max-lg\:flex-1{
     flex: 1 1 0%;
   }
@@ -1152,28 +1107,19 @@ video {
     padding-bottom: 2rem;
   }
 
+  .max-lg\:text-\[50px\]{
+    font-size: 50px;
+  }
+
   .max-lg\:text-sm{
     font-size: 0.875rem;
     line-height: 1.25rem;
-  }
-
-  .max-lg\:text-4xl{
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-
-  .max-lg\:text-\[50px\]{
-    font-size: 50px;
   }
 }
 
 @media not all and (min-width: 768px){
   .max-md\:w-10\/12{
     width: 83.333333%;
-  }
-
-  .max-md\:w-full{
-    width: 100%;
   }
 
   .max-md\:w-11\/12{

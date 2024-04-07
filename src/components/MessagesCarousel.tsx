@@ -81,8 +81,11 @@ const MessagesCarousel = ({ delay }: { delay?: number }) => {
         slidesPerView={isMobile ? 1 : 2}
         className='mySwiper h-fit w-full my-5 pb-5'
       >
-        {dummyMessages.map((data) => (
-          <SwiperSlide className='gap-3'>
+        {dummyMessages.map((data, i) => (
+          <SwiperSlide
+            key={`messages-${data.senderName}-${i}`}
+            className='gap-3'
+          >
             <MessageCard
               message={data.message}
               senderName={data.senderName}

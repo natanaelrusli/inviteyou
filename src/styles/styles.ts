@@ -32,7 +32,7 @@ export const SectionContainer = styled(motion.section)<{
   $textColor?: string;
 }>`
   background-image: ${(props) => `url(${props.$bgImg})` || `url(${heroImg})`};
-  height: 100vh;
+  height: 100dvh;
   background-size: cover;
   background-position: center;
   display: flex;
