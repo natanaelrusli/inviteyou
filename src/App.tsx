@@ -1,37 +1,23 @@
-import { useLocation, useRoutes } from "react-router-dom";
-import LandingPage from "./pages/LandingPage";
-import InvitationPage from "./pages/InvitationPage";
 import { AnimatePresence } from "framer-motion";
+import { HelmetProvider } from "react-helmet-async";
+import { useAuthStore } from "./store/authStore";
+import InvitationPage from "./pages/InvitationPage";
+import LandingPage from "./pages/LandingPage";
 
 import "./App.css";
 import "./style.css";
-import React from "react";
-import { HelmetProvider } from "react-helmet-async";
 
 function App() {
-  const element = useRoutes([
-    {
-      path: "/",
-      element: <LandingPage />,
-    },
-    {
-      path: "/invitation",
-      element: <InvitationPage />,
-    },
-    {
-      path: "*",
-      element: <LandingPage />,
-    },
-  ]);
-
-  const location = useLocation();
-
-  if (!element) return null;
+  const { authenticated } = useAuthStore();
 
   return (
     <HelmetProvider>
       <AnimatePresence mode='wait'>
-        {React.cloneElement(element, { key: location.pathname })}
+        {authenticated ? (
+          <InvitationPage key={"invitation-page"} />
+        ) : (
+          <LandingPage key={"landing-page"} />
+        )}
       </AnimatePresence>
     </HelmetProvider>
   );

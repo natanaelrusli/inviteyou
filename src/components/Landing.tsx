@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import heroImg from "../assets/hero-image.jpg";
-import { Link } from "react-router-dom";
 import color from "../styles/color";
 import { data } from "../constants/data";
 import { fadeDown, fadeIn } from "../styles/animations";
 import { motion } from "framer-motion";
+import { useAuthStore } from "../store/authStore";
 
 const SubHeader = styled.p`
   font-size: 1.5rem;
@@ -78,7 +78,7 @@ const SectionContainer = styled(motion.section)<{ $bgImg?: string }>`
   align-items: center;
 `;
 
-const LandingButton = styled(Link)`
+const LandingButton = styled.button`
   padding: 1em 3em;
   background-color: transparent;
   border: 2px solid black;
@@ -109,6 +109,8 @@ const LandingButton = styled(Link)`
 `;
 
 const Landing = () => {
+  const { setAuthenticated } = useAuthStore();
+
   return (
     <SectionContainer $bgImg={heroImg} className='duration-300'>
       <TopSection>
@@ -121,7 +123,7 @@ const Landing = () => {
       </TopSection>
       <LandingButton
         className='group transition-all duration-300'
-        to={`/invitation?`}
+        onClick={() => setAuthenticated(true)}
       >
         Open Invitation
       </LandingButton>
