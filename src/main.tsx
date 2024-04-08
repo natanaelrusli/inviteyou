@@ -4,14 +4,11 @@ import App from "./App.tsx";
 import { register } from "swiper/element/bundle";
 
 import "./index.css";
-import { BrowserRouter } from "react-router-dom";
 
 register();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </BrowserRouter>
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );

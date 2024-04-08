@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { Link, useSearchParams } from "react-router-dom";
 
 import MessagesCarousel from "./MessagesCarousel";
 import InButton from "./InButton";
@@ -57,10 +56,7 @@ const FormCaption = styled.p`
 `;
 
 const Wishes = () => {
-  const [searchParams] = useSearchParams();
   const { setGuest, guest } = useContext(GuestContext);
-
-  const guestName = searchParams.get("name") || guest.name || "you";
 
   return (
     <Section>
@@ -68,7 +64,7 @@ const Wishes = () => {
         style={{ marginBottom: "0.1em" }}
         $textColor={color.primaryText}
       >
-        Pray and Wishes from {guestName}
+        Pray and Wishes from {guest.name}
       </SectionHeader>
       <FormCaption style={{ marginBottom: "0.6em" }}>
         Please leave your sincere prayers and wishes to us and our family
@@ -92,7 +88,7 @@ const Wishes = () => {
         onChange={(e) => setGuest({ ...guest, wishes: e.target.value })}
       />
 
-      <Link
+      <button
         style={{
           textDecoration: "none",
           color: "black",
@@ -100,10 +96,9 @@ const Wishes = () => {
           display: "flex",
           justifyContent: "center",
         }}
-        to={`/confirm?name=${guest.name}&rsvp=${guest.RSVP}`}
       >
         <InButton className='w-[384px]'>Send</InButton>
-      </Link>
+      </button>
       {/* form ends */}
 
       <div className='mt-12 w-5/12 max-xl:w-8/12 max-md:w-11/12'>
