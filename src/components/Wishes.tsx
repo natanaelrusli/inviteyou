@@ -88,7 +88,7 @@ const Wishes = () => {
         onChange={(e) => setGuest({ ...guest, wishes: e.target.value })}
       />
 
-      <button
+      <InButton
         style={{
           textDecoration: "none",
           color: "black",
@@ -96,9 +96,10 @@ const Wishes = () => {
           display: "flex",
           justifyContent: "center",
         }}
+        className='w-[384px]'
       >
-        <InButton className='w-[384px]'>Send</InButton>
-      </button>
+        Send
+      </InButton>
       {/* form ends */}
 
       <div className='mt-12 w-5/12 max-xl:w-8/12 max-md:w-11/12'>

@@ -1,19 +1,19 @@
 import { ReactNode } from "react";
 import { Button as StyledButton } from "./style";
+import { HTMLMotionProps } from "framer-motion";
 
-interface ButtonProps {
+interface ButtonProps extends HTMLMotionProps<"button"> {
   children: ReactNode;
   onClick?: () => void;
-  className?: string;
 }
 
-const Index = ({ children, onClick, className }: ButtonProps) => {
+const Index: React.FC<ButtonProps> = ({ children, onClick, ...props }) => {
   return (
     <StyledButton
-      className={className}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       onClick={onClick}
+      {...props}
     >
       {children}
     </StyledButton>

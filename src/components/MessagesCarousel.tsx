@@ -2,45 +2,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "./MessageCarousel.css";
+import { useEffect, useState } from "react";
+import { messageData } from "../data/message";
 
 interface MessageCardProps {
   message?: string;
   senderName?: string;
-  relationship?: string;
 }
-
-const dummyMessages: MessageCardProps[] = [
-  {
-    message:
-      "Congratulations on your wedding day! Wishing you a lifetime of love and happiness.",
-    senderName: "Emily & Michael",
-    relationship: "Friends of the Bride and Groom",
-  },
-  {
-    message:
-      "May your wedding day be filled with joy and your love continue to grow stronger with each passing day.",
-    senderName: "Sarah & David",
-    relationship: "Family Friends",
-  },
-  {
-    message:
-      "Warmest congratulations on your marriage! Here's to the beginning of a beautiful journey together.",
-    senderName: "Jessica & Adam",
-    relationship: "Cousins",
-  },
-  {
-    message:
-      "Wishing you both a lifetime of love and laughter. Congratulations on finding your forever love!",
-    senderName: "Mark & Olivia",
-    relationship: "High School Sweethearts",
-  },
-  {
-    message:
-      "On this special day, may your love for each other continue to grow stronger. Congratulations!",
-    senderName: "Ryan & Natalie",
-    relationship: "Neighbors",
-  },
-];
 
 const MessageCard = ({ ...props }: MessageCardProps) => {
   return (
@@ -50,9 +18,6 @@ const MessageCard = ({ ...props }: MessageCardProps) => {
       </div>
       <div className='flex flex-col gap-1 border-t border-primary opacity-30-brown pt-2 items-start'>
         <div className='text-lg'>{props.senderName || "Anonymous"}</div>
-        <div className='font-light text-sm'>
-          {props.relationship || "someone important"}
-        </div>
       </div>
     </div>
   );
@@ -60,6 +25,17 @@ const MessageCard = ({ ...props }: MessageCardProps) => {
 
 const MessagesCarousel = ({ delay }: { delay?: number }) => {
   const isMobile = window.innerWidth <= 768;
+  const [messages, setMessages] = useState<messageData[]>();
+
+  useEffect(() => {
+    fetch("http://localhost:3000/message")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data: messageData[]) => {
+        setMessages(data);
+      });
+  }, []);
 
   return (
     <div className='p-8 bg-white border-2 border-primary rounded-xl'>
@@ -70,7 +46,7 @@ const MessagesCarousel = ({ delay }: { delay?: number }) => {
       <Swiper
         speed={1000}
         autoplay={{
-          delay: delay || 6000,
+          delay: delay ? delay : 6000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -81,18 +57,19 @@ const MessagesCarousel = ({ delay }: { delay?: number }) => {
         slidesPerView={isMobile ? 1 : 2}
         className='mySwiper h-fit w-full my-5 pb-5'
       >
-        {dummyMessages.map((data, i) => (
-          <SwiperSlide
-            key={`messages-${data.senderName}-${i}`}
-            className='gap-3'
-          >
-            <MessageCard
-              message={data.message}
-              senderName={data.senderName}
-              relationship={data.relationship}
-            />
-          </SwiperSlide>
-        ))}
+        {messages?.length === 0 && (
+          <h1 className='text-center text-xl font-semibold text-soft-brown'>
+            No Messages
+          </h1>
+        )}
+        {messages?.map(
+          (data, i) =>
+            data.is_approved && (
+              <SwiperSlide key={`messages-${data.id}-${i}`} className='gap-3'>
+                <MessageCard message={data.message} senderName={data.name} />
+              </SwiperSlide>
+            )
+        )}
       </Swiper>
     </div>
   );
